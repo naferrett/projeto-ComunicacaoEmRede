@@ -4,32 +4,24 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="af809e2b-38fa-4de0-ae51-fc75a94a1a9a" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/client/VotingClient.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/guiApp/EventListener.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/guiApp/ImageDisplayPanel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/guiApp/MainTeste.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/guiApp/MainWindow.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/guiApp/MenuHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/guiApp/MessageWindow.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/guiApp/NewPollWindow.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/guiApp/PoolWindow.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/guiApp/ReportsScreen.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/guiApp/SystemInfo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/guiApp/WindowListenerHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/server/VotingServer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/teste/ChatClient.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/teste/ChatServer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/teste/ClientSocket.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/groupIcon.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/system.png" afterDir="false" />
+    <list default="true" id="af809e2b-38fa-4de0-ae51-fc75a94a1a9a" name="Changes" comment="first version - gui">
+      <change afterPath="$PROJECT_DIR$/src/main/java/server/gui/MenuHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/server/gui/ReportsWindow.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/server/gui/ServerEventListener.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/server/gui/ServerMainWindow.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/client/VotingClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client/VotingClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/guiApp/EventListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client/gui/EventListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/guiApp/ImageDisplayPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client/gui/ImageDisplayPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/guiApp/MainTeste.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client/gui/MainTeste.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/guiApp/MainWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client/gui/MainWindow.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/guiApp/MenuHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client/gui/MenuHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/guiApp/MessageWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client/gui/MessageWindow.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/guiApp/NewPollWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/server/gui/NewPollWindow.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/guiApp/PoolWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client/gui/PoolWindow.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/guiApp/ReportsScreen.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/guiApp/SystemInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/clientServer/SystemInfo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/guiApp/WindowListenerHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/clientServer/WindowListenerHandler.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,31 +49,33 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.ChatClient.executor&quot;: &quot;Run&quot;,
-    &quot;Application.ChatServer.executor&quot;: &quot;Run&quot;,
-    &quot;Application.MainTeste.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/nathf/OneDrive/Documentos/unicamp/matérias/POO II/demonstracao_gui_basica 104&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.ChatClient.executor": "Run",
+    "Application.ChatServer.executor": "Run",
+    "Application.MainTeste.executor": "Run",
+    "Application.client.gui.MainTeste.executor": "Run",
+    "Application.client.guiApp.MainTeste.executor": "Run",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "main",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/nathf/OneDrive/Documentos/unicamp/matérias/POO II/demonstracao_gui_basica 104",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\nathf\OneDrive\Documentos\unicamp\matérias\POO II\Projeto-II-ComunicacaoEmRede\src\main\resources" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.MainTeste">
+  <component name="RunManager" selected="Application.client.gui.MainTeste">
     <configuration name="ChatClient" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="teste.ChatClient" />
       <module name="Projeto-II-ComunicacaoEmRede" />
@@ -121,8 +115,22 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="client.gui.MainTeste" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="client.gui.MainTeste" />
+      <module name="Projeto-II-ComunicacaoEmRede" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="clientServer.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.client.gui.MainTeste" />
         <item itemvalue="Application.MainTeste" />
         <item itemvalue="Application.ChatServer" />
         <item itemvalue="Application.ChatClient" />
@@ -140,11 +148,25 @@
       <workItem from="1729704115683" duration="9480000" />
       <workItem from="1730123437864" duration="8274000" />
       <workItem from="1730141414868" duration="10722000" />
-      <workItem from="1730242297867" duration="5436000" />
+      <workItem from="1730242297867" duration="6094000" />
+      <workItem from="1730290526195" duration="3285000" />
     </task>
+    <task id="LOCAL-00001" summary="first version - gui">
+      <option name="closed" value="true" />
+      <created>1730248805703</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1730248805703</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="first version - gui" />
+    <option name="LAST_COMMIT_MESSAGE" value="first version - gui" />
   </component>
 </project>

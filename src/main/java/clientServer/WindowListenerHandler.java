@@ -3,17 +3,20 @@
  * abertura, fechamento, minimização e ativação. Quando a janela está prestes a ser fechada,
  * exibe uma mensagem ao usuário e executa o método de encerramento da interface principal.*/
 
-package guiApp;
+package clientServer;
+
+import client.gui.MainWindow;
+import clientServer.SystemInfo;
 
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
 
 import javax.swing.JOptionPane;
 
-class WindowListenerHandler implements WindowListener {
+public class WindowListenerHandler implements WindowListener {
     private final MainWindow reference;
 
-    WindowListenerHandler(MainWindow reference)
+    public WindowListenerHandler(MainWindow reference)
     {
         this.reference = reference;
     }

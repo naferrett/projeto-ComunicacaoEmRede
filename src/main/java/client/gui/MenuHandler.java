@@ -3,7 +3,7 @@
  * inserindo os menus de Arquivo, Configuração e Ajuda.
  */
 
-package guiApp;
+package client.gui;
 
 import lombok.Getter;
 
@@ -40,8 +40,8 @@ public class MenuHandler {
     public void createAddToMenu() {
         JMenuBar menuBar = new JMenuBar();
 
-        menuBar.add(createPoolMenu());
-        menuBar.add(createReportsMenu());
+        //menuBar.add(createPoolMenu());
+        //menuBar.add(createReportsMenu());
         menuBar.add(createHelpMenu());
 
         mainWindow.setJMenuBar(menuBar);

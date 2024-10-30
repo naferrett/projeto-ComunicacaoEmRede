@@ -1,9 +1,9 @@
 /* Essa classe define as variáveis globais do programa, assim como também possui
  * métodos para exibir informações sobre o sistema e instruções de ajuda. */
 
-package guiApp;
+package clientServer;
 
-class SystemInfo {
+public class SystemInfo {
     public static final String author = "Grupo G - S400B - Manhã";
     public static final String faculty = "FT - Faculdade de Tecnologia";
     public static final String university = "Unicamp - Universidade Estadual de Campinas";
@@ -12,7 +12,7 @@ class SystemInfo {
     public static final String systemImage = "/system.png";
     public static final String iconImage = "/groupIcon.png";
 
-    static String getCredits() {
+    public static String getCredits() {
         final StringBuffer text = new StringBuffer();
 
         text.append(university);
@@ -28,7 +28,7 @@ class SystemInfo {
         return (text.toString());
     }
 
-    static String getHelp() {
+    public static String getHelp() {
         StringBuilder text = new StringBuilder();
 
         text.append("Este programa tem como objetivo demonstrar o uso de interface gráfica em Java enquanto explora a criação de interfaces, integração com arquivos, uso de threads e personalização de componentes. \n");
@@ -70,7 +70,7 @@ class SystemInfo {
         return (text.toString());
     }
 
-    static String getInstructionsToAddPool() {
+    public static String getInstructionsToAddPool() {
         StringBuilder text = new StringBuilder();
 
         text.append("Adicione as opções de voto.\n");
@@ -81,7 +81,7 @@ class SystemInfo {
         return (text.toString());
     }
 
-    static String getVersionName()
+    public static String getVersionName()
     {
         return (name + " - " + version);
     }

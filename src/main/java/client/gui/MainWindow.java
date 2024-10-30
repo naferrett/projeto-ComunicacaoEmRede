@@ -1,5 +1,7 @@
-package guiApp;
+package client.gui;
 
+import clientServer.SystemInfo;
+import clientServer.WindowListenerHandler;
 import lombok.extern.log4j.Log4j2;
 
 import javax.imageio.ImageIO;
@@ -18,8 +20,7 @@ public class MainWindow extends JFrame {
     private JLabel labelStatus;
     private JLabel poolTitle;
     private JTextField cpfField;
-    private JButton confirmButton;
-    private List<String> poolOptions;
+    private final List<String> poolOptions;
     private JScrollPane scrollPane;
 
     MainWindow() throws HeadlessException {
@@ -81,7 +82,7 @@ public class MainWindow extends JFrame {
         cpfField.setAlignmentX(Component.CENTER_ALIGNMENT);
 
         // Botão de confirmação
-        confirmButton = new JButton("Confirmar");
+        JButton confirmButton = new JButton("Confirmar");
         confirmButton.setAlignmentX(Component.CENTER_ALIGNMENT);
         confirmButton.addActionListener(e -> {
             String cpf = cpfField.getText();
@@ -158,7 +159,7 @@ public class MainWindow extends JFrame {
         }
     }
 
-    void exitInterface() {
+    public void exitInterface() {
         System.exit(NORMAL);
     }
 }

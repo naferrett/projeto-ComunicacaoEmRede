@@ -1,7 +1,8 @@
 /* Essa classe é responsável por carreagr e exibir uma imagem. */
 
-package guiApp;
+package client.gui;
 
+import clientServer.SystemInfo;
 import lombok.extern.log4j.Log4j2;
 
 import java.awt.Graphics;

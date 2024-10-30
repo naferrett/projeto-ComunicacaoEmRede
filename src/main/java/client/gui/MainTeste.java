@@ -1,4 +1,4 @@
-package guiApp;
+package client.gui;
 
 import lombok.extern.log4j.Log4j2;
 

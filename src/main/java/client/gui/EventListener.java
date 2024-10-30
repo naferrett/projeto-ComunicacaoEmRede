@@ -1,11 +1,14 @@
 /*
- * A classe EventListener lida com os eventos de ação disparados pelos menus e itens de interface.
+ * A classe ServerEventListener lida com os eventos de ação disparados pelos menus e itens de interface.
  * Essa classe implementa a interface ActionListener, respondendo a comandos como abrir/fechar arquivos, alterar padrões e cores de fundo,
  * mudar a velocidade de animação e exibir mensagens de ajuda ou sobre a aplicação.
  */
 
 
-package guiApp;
+package client.gui;
+
+import clientServer.SystemInfo;
+import server.gui.NewPollWindow;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -21,26 +24,26 @@ public class EventListener implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent event) {
-        if (event.getSource() == menuHandler.getNewPollItem()) {
-            mainWindow.setStatusMessage("Opção 'Nova Votação' selecionada!");
-            showNewPollWindow();
-        }
-        if (event.getSource() == menuHandler.getClosePollItem()) {
-            mainWindow.setStatusMessage("Opção 'Encerrar Votação' selecionada!");
-            closePollWindow();
-        }
-        if (event.getSource() == menuHandler.getExitItem()) {
-            mainWindow.setStatusMessage("Opção 'Sair' selecionada!");
-            mainWindow.initInterface();
-        }
-        if (event.getSource() == menuHandler.getResultReportItem()) {
-            mainWindow.setStatusMessage("Opção 'Resultados' selecionada!");
-            showResultsReport();
-        }
-        if (event.getSource() == menuHandler.getVotersReportItem()) {
-            mainWindow.setStatusMessage("Opção 'Eleitores' selecionada!");
-            showVotersReport();
-        }
+//        if (event.getSource() == menuHandler.getNewPollItem()) {
+//            mainWindow.setStatusMessage("Opção 'Nova Votação' selecionada!");
+//            showNewPollWindow();
+//        }
+//        if (event.getSource() == menuHandler.getClosePollItem()) {
+//            mainWindow.setStatusMessage("Opção 'Encerrar Votação' selecionada!");
+//            closePollWindow();
+//        }
+//        if (event.getSource() == menuHandler.getExitItem()) {
+//            mainWindow.setStatusMessage("Opção 'Sair' selecionada!");
+//            mainWindow.initInterface();
+//        }
+//        if (event.getSource() == menuHandler.getResultReportItem()) {
+//            mainWindow.setStatusMessage("Opção 'Resultados' selecionada!");
+//            showResultsReport();
+//        }
+//        if (event.getSource() == menuHandler.getVotersReportItem()) {
+//            mainWindow.setStatusMessage("Opção 'Eleitores' selecionada!");
+//            showVotersReport();
+//        }
         if (event.getSource() == menuHandler.getMenuItemHelp()) {
             mainWindow.setStatusMessage("Opção 'Ajuda' selecionada!");
             showHelpMessage();
@@ -51,9 +54,9 @@ public class EventListener implements ActionListener {
         }
     }
 
-    private void showNewPollWindow() {
-        (new NewPollWindow(mainWindow, "Nova Votação - " + SystemInfo.getVersionName(), SystemInfo.getInstructionsToAddPool(), mainWindow)).setVisible(true);
-    }
+//    private void showNewPollWindow() {
+//        (new NewPollWindow(mainWindow, "Nova Votação - " + SystemInfo.getVersionName(), SystemInfo.getInstructionsToAddPool(), mainWindow)).setVisible(true);
+//    }
 
     private void closePollWindow() {
     }

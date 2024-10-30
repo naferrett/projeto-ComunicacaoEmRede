@@ -1,4 +1,6 @@
-package guiApp;
+package server.gui;
+
+import client.gui.MainWindow;
 
 import javax.swing.*;
 import java.awt.*;
@@ -22,7 +24,7 @@ public class NewPollWindow extends JDialog implements ActionListener {
     private JTextField poolTitle;
     private JTextField poolOption;
     private final JTextArea textArea;
-    private MainWindow mainWindow;
+    private client.gui.MainWindow mainWindow;
 
     NewPollWindow(JFrame window, String title, String text, MainWindow mainWindow) throws HeadlessException {
         super(window, title);
