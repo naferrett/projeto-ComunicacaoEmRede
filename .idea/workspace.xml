@@ -4,24 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="af809e2b-38fa-4de0-ae51-fc75a94a1a9a" name="Changes" comment="first version - gui">
-      <change afterPath="$PROJECT_DIR$/src/main/java/server/gui/MenuHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/server/gui/ReportsWindow.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/server/gui/ServerEventListener.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/server/gui/ServerMainWindow.java" afterDir="false" />
+    <list default="true" id="af809e2b-38fa-4de0-ae51-fc75a94a1a9a" name="Changes" comment="separating server and client in diff interfaces">
+      <change afterPath="$PROJECT_DIR$/src/main/java/client/ClientSocket.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/server/PollPackage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/client/VotingClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client/VotingClient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/guiApp/EventListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client/gui/EventListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/guiApp/ImageDisplayPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client/gui/ImageDisplayPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/guiApp/MainTeste.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client/gui/MainTeste.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/guiApp/MainWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client/gui/MainWindow.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/guiApp/MenuHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client/gui/MenuHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/guiApp/MessageWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client/gui/MessageWindow.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/guiApp/NewPollWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/server/gui/NewPollWindow.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/guiApp/PoolWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client/gui/PoolWindow.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/guiApp/ReportsScreen.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/guiApp/SystemInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/clientServer/SystemInfo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/guiApp/WindowListenerHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/clientServer/WindowListenerHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/server/VotingServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/server/VotingServer.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -61,7 +49,7 @@
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "git-widget-placeholder": "main",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/nathf/OneDrive/Documentos/unicamp/matérias/POO II/demonstracao_gui_basica 104",
+    "last_opened_file_path": "C:/Users/nathf/OneDrive/Documentos/unicamp/matérias/tt001/Projeto",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -149,7 +137,8 @@
       <workItem from="1730123437864" duration="8274000" />
       <workItem from="1730141414868" duration="10722000" />
       <workItem from="1730242297867" duration="6094000" />
-      <workItem from="1730290526195" duration="3285000" />
+      <workItem from="1730290526195" duration="7618000" />
+      <workItem from="1730308400434" duration="216000" />
     </task>
     <task id="LOCAL-00001" summary="first version - gui">
       <option name="closed" value="true" />
@@ -159,7 +148,15 @@
       <option name="project" value="LOCAL" />
       <updated>1730248805703</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="separating server and client in diff interfaces">
+      <option name="closed" value="true" />
+      <created>1730293858634</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1730293858634</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -167,6 +164,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="first version - gui" />
-    <option name="LAST_COMMIT_MESSAGE" value="first version - gui" />
+    <MESSAGE value="separating server and client in diff interfaces" />
+    <option name="LAST_COMMIT_MESSAGE" value="separating server and client in diff interfaces" />
   </component>
 </project>
