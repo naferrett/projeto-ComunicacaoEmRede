@@ -1,5 +1,6 @@
 package client.gui;
 
+import client.VotingClient;
 import clientServer.SystemInfo;
 import clientServer.WindowListenerHandler;
 import lombok.extern.log4j.Log4j2;
@@ -10,32 +11,28 @@ import java.awt.*;
 import java.awt.event.ActionListener;
 import java.io.IOException;
 import java.io.Serial;
-import java.util.ArrayList;
-import java.util.List;
 
 @Log4j2
 public class MainWindow extends JFrame {
     @Serial
     private static final long serialVersionUID = 1L;
     private JLabel labelStatus;
-    private JLabel poolTitle;
+    private final VotingClient client;
     private JTextField cpfField;
-    private final List<String> poolOptions;
-    private JScrollPane scrollPane;
 
-    MainWindow() throws HeadlessException {
+    public MainWindow(VotingClient votingClient) throws HeadlessException {
         super(SystemInfo.getVersionName());
-
-        poolOptions = new ArrayList<>();
 
         windowConfig();
         initAddComponents();
 
-        MenuHandler menuHandler = new MenuHandler(this);
-        menuHandler.createAddToMenu();
-
-        EventListener eventListener = new EventListener(this, menuHandler);
-        this.addMenuListeners(eventListener);
+        this.client = votingClient;
+        try {
+            client.start(); // Conecta ao servidor e recebe o pacote de votação
+        } catch (IOException e) {
+            JOptionPane.showMessageDialog(this, "Erro ao conectar com o servidor de votação.", "Erro", JOptionPane.ERROR_MESSAGE);
+            log.error(e);
+        }
     }
 
     private void windowConfig() {
@@ -59,67 +56,11 @@ public class MainWindow extends JFrame {
         this.labelStatus.setText(message);
     }
 
-    public void setPoolTitle(String message) {
-        this.poolTitle.setText(message);
-    }
-
-    public void setBackGround() {
-        JPanel backgroundPanel = new JPanel();
-        backgroundPanel.setLayout(new BoxLayout(backgroundPanel, BoxLayout.Y_AXIS));
-        backgroundPanel.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
-
-        // Mensagem de instrução
-        JLabel instructionLabel = new JLabel("Para votar, digite o CPF (números) e confirme:");
-        instructionLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
-
-        // Label "CPF"
-        JLabel cpfLabel = new JLabel("CPF:");
-        cpfLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
-
-        // Campo de texto para CPF
-        cpfField = new JTextField(15);
-        cpfField.setMaximumSize(new Dimension(200, 25));
-        cpfField.setAlignmentX(Component.CENTER_ALIGNMENT);
-
-        // Botão de confirmação
-        JButton confirmButton = new JButton("Confirmar");
-        confirmButton.setAlignmentX(Component.CENTER_ALIGNMENT);
-        confirmButton.addActionListener(e -> {
-            String cpf = cpfField.getText();
-            if (cpf.isEmpty()) {
-                JOptionPane.showMessageDialog(this, "Por favor, insira o CPF.", "Erro", JOptionPane.ERROR_MESSAGE);
-            } else {
-                // Exibe a PoolWindow com as opções
-                PoolWindow poolWindow = new PoolWindow(this, "Título da Votação", poolOptions);
-                poolWindow.setVisible(true);
-            }
-        });
-
-
-
-        // Adicionando componentes ao painel de fundo
-        backgroundPanel.add(Box.createVerticalStrut(10));
-        backgroundPanel.add(instructionLabel);
-        backgroundPanel.add(Box.createVerticalStrut(30));
-        backgroundPanel.add(cpfLabel);  // Adicionando o label "CPF"
-        backgroundPanel.add(Box.createVerticalStrut(15));
-        backgroundPanel.add(cpfField);
-        backgroundPanel.add(Box.createVerticalStrut(15));
-        backgroundPanel.add(confirmButton);
-
-        // Adicionando o painel de fundo à janela principal
-        this.add(backgroundPanel, BorderLayout.CENTER);
-    }
-
-
-    public List<String> getPoolOptions() {
-        return poolOptions;
-    }
-
     private void initAddComponents() {
         initStatusPanel();
-        setBackGround();
         initWindowListener();
+        initMenu();
+        initBackGround();
 
         setVisible(true);
     }
@@ -133,7 +74,7 @@ public class MainWindow extends JFrame {
         this.add(statusPanel, BorderLayout.SOUTH);
     }
 
-    void initInterface() {
+    public void initInterface() {
         this.setStatusMessage(SystemInfo.university);
         this.setVisible(true);
     }
@@ -141,6 +82,65 @@ public class MainWindow extends JFrame {
     private void initWindowListener() {
         WindowListenerHandler windowEventListener = new WindowListenerHandler(this);
         this.addWindowListener(windowEventListener);
+    }
+
+    private void initMenu() {
+        MenuHandler menuHandler = new MenuHandler(this);
+        menuHandler.createAddToMenu();
+
+        initEventListener(menuHandler);
+    }
+
+    private void initEventListener(MenuHandler menuHandler) {
+        EventListener eventListener = new EventListener(this, menuHandler);
+        this.addMenuListeners(eventListener);
+    }
+
+    public void initBackGround() {
+        JPanel backgroundPanel = new JPanel();
+        backgroundPanel.setLayout(new BoxLayout(backgroundPanel, BoxLayout.Y_AXIS));
+        backgroundPanel.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
+
+        JLabel instructionLabel = new JLabel("Para votar, digite o CPF (números) e confirme:");
+        instructionLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
+
+        JLabel cpfLabel = new JLabel("CPF:");
+        cpfLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
+
+        cpfField = new JTextField(15);
+        cpfField.setMaximumSize(new Dimension(200, 25));
+        cpfField.setAlignmentX(Component.CENTER_ALIGNMENT);
+
+        JButton confirmButton = new JButton("Confirmar");
+        confirmButton.setAlignmentX(Component.CENTER_ALIGNMENT);
+        confirmButton.addActionListener(e -> {
+            String cpf = cpfField.getText();
+
+            if (cpf.isEmpty()) {
+                JOptionPane.showMessageDialog(this, "Por favor, insira o CPF.", "Erro", JOptionPane.ERROR_MESSAGE);
+            } else {
+                boolean validCPF = client.sendCPFToVerification(cpf);
+                if(validCPF) {
+                    PoolWindow poolWindow = new PoolWindow(this, client.getVotingPackage().getQuestion(), client.getVotingPackage().getOptions());
+                    poolWindow.setVisible(true);
+                } else {
+                    JOptionPane.showMessageDialog(this, "Esse CPF já foi registrado para votação.", "Erro", JOptionPane.ERROR_MESSAGE);
+                }
+            }
+        });
+
+        // Adicionando componentes ao painel de fundo
+        backgroundPanel.add(Box.createVerticalStrut(10));
+        backgroundPanel.add(instructionLabel);
+        backgroundPanel.add(Box.createVerticalStrut(30));
+        backgroundPanel.add(cpfLabel);  // Adicionando o label "CPF"
+        backgroundPanel.add(Box.createVerticalStrut(15));
+        backgroundPanel.add(cpfField);
+        backgroundPanel.add(Box.createVerticalStrut(15));
+        backgroundPanel.add(confirmButton);
+
+        // Adicionando o painel de fundo à janela principal
+        this.add(backgroundPanel, BorderLayout.CENTER);
     }
 
     void addMenuItemListener(ActionListener listener, JMenu mainMenu) {

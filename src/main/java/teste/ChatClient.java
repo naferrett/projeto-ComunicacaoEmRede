@@ -1,9 +1,6 @@
 package teste;
 
-import java.io.BufferedWriter;
 import java.io.IOException;
-import java.io.OutputStreamWriter;
-import java.io.PrintWriter;
 import java.net.Socket;
 import java.util.Scanner;
 
@@ -11,7 +8,7 @@ import static java.lang.System.out;
 
 public class ChatClient implements Runnable {
     private static final String SERVER_ADRESS = "127.0.0.1"; // local, na mesma máquina (localhost)
-    private ClientSocket clientSocket;
+    private ClientSocketTeste clientSocket;
     private Scanner sc;
 
     public ChatClient() {
@@ -20,7 +17,7 @@ public class ChatClient implements Runnable {
 
     public void start() throws IOException {
         try {
-            clientSocket = new ClientSocket(new Socket(SERVER_ADRESS, ChatServer.PORT));
+            clientSocket = new ClientSocketTeste(new Socket(SERVER_ADRESS, ChatServer.PORT));
             out.println("Cliente conectado " + SERVER_ADRESS);
             new Thread(this).start();
             messageLoop();

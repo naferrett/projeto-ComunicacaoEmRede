@@ -169,14 +169,14 @@ public class NewPollWindow extends JDialog implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent event) {
-        if (event.getSource() == confirmPoolTitleButton) {
-            mainWindow.setPoolTitle(poolTitle.getText());
-        }
-
-        if (event.getSource() == confirmPoolOptionButton) {
-            mainWindow.getPoolOptions().add(poolOption.getText());
-            poolOption.setText("");
-        }
+//        if (event.getSource() == confirmPoolTitleButton) {
+//            mainWindow.setPoolTitle(poolTitle.getText());
+//        }
+//
+//        if (event.getSource() == confirmPoolOptionButton) {
+//            mainWindow.getPoolOptions().add(poolOption.getText());
+//            poolOption.setText("");
+//        }
 
         if (event.getSource() == sendPoolButton) {
             // to-do

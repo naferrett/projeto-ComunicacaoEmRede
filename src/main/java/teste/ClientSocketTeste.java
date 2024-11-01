@@ -7,12 +7,12 @@ import java.io.PrintWriter;
 import java.net.Socket;
 import java.net.SocketAddress;
 
-public class ClientSocket {
+public class ClientSocketTeste {
     private final Socket socket;
     private final BufferedReader in;
     private final PrintWriter out;
 
-    public ClientSocket(Socket socket) throws IOException {
+    public ClientSocketTeste(Socket socket) throws IOException {
         this.socket = socket;
         System.out.println("Cliente " + socket.getRemoteSocketAddress() + " conectou.");
         this.in = new BufferedReader(new InputStreamReader(socket.getInputStream()));

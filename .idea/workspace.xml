@@ -5,11 +5,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="af809e2b-38fa-4de0-ae51-fc75a94a1a9a" name="Changes" comment="separating server and client in diff interfaces">
-      <change afterPath="$PROJECT_DIR$/src/main/java/client/ClientSocket.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/server/PollPackage.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/client/terminalvotingcli.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/client/ClientSocket.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client/ClientSocket.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/client/VotingClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client/VotingClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/client/gui/MainTeste.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client/gui/MainTeste.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/client/gui/MainWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client/gui/MainWindow.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/server/PollPackage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/clientServer/Poll.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/server/VotingServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/server/VotingServer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/server/gui/NewPollWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/server/gui/NewPollWindow.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/teste/ChatClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/teste/ChatClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/teste/ChatServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/teste/ChatServer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/teste/ClientSocket.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/teste/ClientSocketTeste.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,46 +44,35 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.ChatClient.executor": "Run",
-    "Application.ChatServer.executor": "Run",
-    "Application.MainTeste.executor": "Run",
-    "Application.client.gui.MainTeste.executor": "Run",
-    "Application.client.guiApp.MainTeste.executor": "Run",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "main",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/nathf/OneDrive/Documentos/unicamp/matérias/tt001/Projeto",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.ChatClient.executor&quot;: &quot;Run&quot;,
+    &quot;Application.ChatServer.executor&quot;: &quot;Run&quot;,
+    &quot;Application.MainTeste.executor&quot;: &quot;Run&quot;,
+    &quot;Application.VotingClient.executor&quot;: &quot;Run&quot;,
+    &quot;Application.VotingServer.executor&quot;: &quot;Run&quot;,
+    &quot;Application.client.gui.MainTeste.executor&quot;: &quot;Run&quot;,
+    &quot;Application.client.guiApp.MainTeste.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/nathf/OneDrive/Documentos/unicamp/matérias/tt001/Projeto&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\nathf\OneDrive\Documentos\unicamp\matérias\POO II\Projeto-II-ComunicacaoEmRede\src\main\resources" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.client.gui.MainTeste">
-    <configuration name="ChatClient" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="teste.ChatClient" />
-      <module name="Projeto-II-ComunicacaoEmRede" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="teste.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager" selected="Application.VotingClient">
     <configuration name="ChatServer" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="teste.ChatServer" />
       <module name="Projeto-II-ComunicacaoEmRede" />
@@ -103,6 +99,32 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="VotingClient" type="Application" factoryName="Application" singleton="false" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="client.VotingClient" />
+      <module name="Projeto-II-ComunicacaoEmRede" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="client.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="VotingServer" type="Application" factoryName="Application" singleton="false" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="server.VotingServer" />
+      <module name="Projeto-II-ComunicacaoEmRede" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="clientServer.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="client.gui.MainTeste" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="client.gui.MainTeste" />
       <module name="Projeto-II-ComunicacaoEmRede" />
@@ -116,12 +138,20 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <list>
+      <item itemvalue="Application.VotingServer" />
+      <item itemvalue="Application.ChatServer" />
+      <item itemvalue="Application.client.gui.MainTeste" />
+      <item itemvalue="Application.MainTeste" />
+      <item itemvalue="Application.VotingClient" />
+    </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.VotingClient" />
+        <item itemvalue="Application.VotingServer" />
         <item itemvalue="Application.client.gui.MainTeste" />
         <item itemvalue="Application.MainTeste" />
         <item itemvalue="Application.ChatServer" />
-        <item itemvalue="Application.ChatClient" />
       </list>
     </recent_temporary>
   </component>
@@ -139,6 +169,12 @@
       <workItem from="1730242297867" duration="6094000" />
       <workItem from="1730290526195" duration="7618000" />
       <workItem from="1730308400434" duration="216000" />
+      <workItem from="1730309819926" duration="30000" />
+      <workItem from="1730328228580" duration="4611000" />
+      <workItem from="1730379433011" duration="4756000" />
+      <workItem from="1730408372925" duration="619000" />
+      <workItem from="1730419446359" duration="5709000" />
+      <workItem from="1730469186004" duration="2591000" />
     </task>
     <task id="LOCAL-00001" summary="first version - gui">
       <option name="closed" value="true" />
@@ -156,7 +192,15 @@
       <option name="project" value="LOCAL" />
       <updated>1730293858634</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="separating server and client in diff interfaces">
+      <option name="closed" value="true" />
+      <created>1730309832342</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1730309832342</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
