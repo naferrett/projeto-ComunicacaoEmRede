@@ -83,6 +83,7 @@ public class VotingClient {
 //
     private Poll receiveVotingPackage() {
         try {
+            inputStream = new ObjectInputStream(socket.getInputStream());
             return (Poll) inputStream.readObject();
         } catch (IOException | ClassNotFoundException e) {
             System.out.println("Erro ao receber pacote de votação: " + e.getMessage());

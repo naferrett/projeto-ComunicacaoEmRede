@@ -18,6 +18,8 @@ public class VotingServer {
     private final List<ClientSocket> clientSocketList = new LinkedList<>();
     private Poll pollPackage;
     private final Map<String, String> votes = new HashMap<>(); // Armazena CPF e voto
+    private ObjectOutputStream outputStream;
+    private ObjectInputStream inputStream;
 
     public VotingServer() {
         this.pollPackage = new Poll(
@@ -56,7 +58,7 @@ public class VotingServer {
     private void sendVotingPackage(ClientSocket clientSocket) {
         try {
             // envia o objeto pela rede até o cliente
-            ObjectOutputStream outputStream = new ObjectOutputStream(clientSocket.getSocket().getOutputStream());
+            outputStream = new ObjectOutputStream(clientSocket.getSocket().getOutputStream());
             outputStream.writeObject(pollPackage);
             outputStream.flush();
         } catch (IOException e) {
@@ -112,8 +114,8 @@ public class VotingServer {
 
     private void clientMessageLoop(ClientSocket clientSocket) {
         try {
-            ObjectInputStream inputStream = new ObjectInputStream(clientSocket.getSocket().getInputStream());
-            ObjectOutputStream outputStream = new ObjectOutputStream(clientSocket.getSocket().getOutputStream());
+            outputStream = new ObjectOutputStream(clientSocket.getSocket().getOutputStream());
+            inputStream = new ObjectInputStream(clientSocket.getSocket().getInputStream());
             while (true) {
                 String cpf = (String) inputStream.readObject();
                 boolean isCpfValid = verifyClientCPF(cpf);
