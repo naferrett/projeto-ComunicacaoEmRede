@@ -1,5 +1,7 @@
 package client.gui;
 
+import client.VotingClient;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -7,11 +9,13 @@ import java.awt.event.ActionListener;
 import java.util.Enumeration;
 import java.util.List;
 
-public class PoolWindow extends JDialog {
+public class PollWindow extends JDialog {
     private final ButtonGroup buttonGroup;
-
-    public PoolWindow(JFrame parent, String title, List<String> options) {
+    VotingClient votingClient;
+    public PollWindow(JFrame parent, String title, List<String> options, VotingClient votingClient) {
         super(parent, title, true);
+
+        this.votingClient = votingClient;
 
         this.setLayout(new BoxLayout(getContentPane(), BoxLayout.Y_AXIS));
         this.setSize(300, 300);
@@ -46,15 +50,16 @@ public class PoolWindow extends JDialog {
             @Override
             public void actionPerformed(ActionEvent e) {
                 if (getSelectedOption() != null) {
-                    JOptionPane.showMessageDialog(PoolWindow.this, "Voto confirmado: " + getSelectedOption(), "Confirmação", JOptionPane.INFORMATION_MESSAGE);
+                    votingClient.sendVote(getSelectedOption());
+                    JOptionPane.showMessageDialog(PollWindow.this, "Voto confirmado: " + getSelectedOption(), "Confirmação", JOptionPane.INFORMATION_MESSAGE);
                     dispose(); // Fecha a janela após confirmar o voto
                 } else {
-                    JOptionPane.showMessageDialog(PoolWindow.this, "Selecione uma opção para votar.", "Aviso", JOptionPane.WARNING_MESSAGE);
+                    JOptionPane.showMessageDialog(PollWindow.this, "Selecione uma opção para votar.", "Aviso", JOptionPane.WARNING_MESSAGE);
                 }
             }
         });
 
-        // Adicionando componentes ao PoolWindow
+        // Adicionando componentes ao PollWindow
         add(Box.createVerticalStrut(10));
         add(titleLabel);
         add(Box.createVerticalStrut(10));

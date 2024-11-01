@@ -40,17 +40,10 @@ public class VotingServer {
 
     private void clientConnectionLoop() throws IOException {
         while (true) {
-            // 2. accept() bloqueia até um cliente se conectar
-            //Socket clientSocket = serverSocket.accept();
-            // 3. Quando um cliente conecta, cria um ClientSocket para gerenciar a comunicação
-            //ClientSocket client = new ClientSocket(clientSocket);
             ClientSocket clientSocket = new ClientSocket(serverSocket.accept());  // Aguarda conexões
             clientSocketList.add(clientSocket);
 
-            // Enviar pacote de votação ao cliente
             new Thread(() -> sendVotingPackage(clientSocket)).start();
-
-            // Iniciar thread para escutar votos do cliente (e imprimir na tela)
             new Thread(() -> clientMessageLoop(clientSocket)).start();
         }
     }
@@ -65,52 +58,9 @@ public class VotingServer {
             System.out.println("Erro ao enviar pacote de votação: " + e.getMessage());
         }
     }
-
-
-//    private void clientMessageLoop(ClientSocket clientSocket) {
-//        try {
-//            ObjectInputStream inputStream = new ObjectInputStream(clientSocket.getSocket().getInputStream());
-//
-//            while (true) {
-//                String[] data = (String[]) inputStream.readObject();
-//                String cpf = data[0];
-//                String vote = data[1];
-//
-//                if (votes.containsKey(cpf)) {
-//                    System.out.println("Voto rejeitado. CPF " + cpf + " já votou.");
-//                    sendMessageToClient(clientSocket, "Voto rejeitado. CPF já registrado.");
-//                } else {
-//                    votes.put(cpf, vote);
-//                    System.out.println("Voto registrado. CPF: " + cpf + " Votou: " + vote);
-//                    sendMessageToClient(clientSocket, "Voto registrado com sucesso!");
-//                }
-//            }
-//        } catch (IOException e) {
-//            System.out.println("Cliente desconectado: " + clientSocket.getSocket().getRemoteSocketAddress());
-//        } catch (ClassNotFoundException e) {
-//            System.out.println("Erro de classe não encontrada ao processar voto: " + e.getMessage());
-//        } finally {
-//            clientSocket.close();
-//        }
-//    }
-
-
-
-    private void sendMessageToClient(ClientSocket clientSocket, String message) {
-        try {
-            ObjectOutputStream outputStream = new ObjectOutputStream(clientSocket.getSocket().getOutputStream());
-            outputStream.writeObject(message);
-            outputStream.flush();
-        } catch (IOException e) {
-            System.out.println("Erro ao enviar mensagem ao cliente: " + e.getMessage());
-        }
-    }
-
-    // interface
     private boolean verifyClientCPF(String cpf) {
         return !votes.containsKey(cpf); // Retorna true se o CPF ainda não foi usado
     }
-
 
     private void clientMessageLoop(ClientSocket clientSocket) {
         try {
@@ -122,6 +72,13 @@ public class VotingServer {
 
                 outputStream.writeObject(isCpfValid);
                 outputStream.flush();
+
+                if(isCpfValid) {
+                    String vote = (String) inputStream.readObject();
+
+                    votes.put(cpf, vote);
+                    System.out.println("Voto registrado. CPF: " + cpf + " Votou: " + vote);
+                }
             }
         } catch (Exception e) {
             System.out.println("Erro ao processar cliente: " + e.getMessage());

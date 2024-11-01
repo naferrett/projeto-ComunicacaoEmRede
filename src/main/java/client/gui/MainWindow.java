@@ -121,7 +121,7 @@ public class MainWindow extends JFrame {
             } else {
                 boolean validCPF = client.sendCPFToVerification(cpf);
                 if(validCPF) {
-                    PoolWindow poolWindow = new PoolWindow(this, client.getVotingPackage().getQuestion(), client.getVotingPackage().getOptions());
+                    PollWindow poolWindow = new PollWindow(this, client.getVotingPackage().getQuestion(), client.getVotingPackage().getOptions(), client);
                     poolWindow.setVisible(true);
                 } else {
                     JOptionPane.showMessageDialog(this, "Esse CPF já foi registrado para votação.", "Erro", JOptionPane.ERROR_MESSAGE);
@@ -160,6 +160,7 @@ public class MainWindow extends JFrame {
     }
 
     public void exitInterface() {
+        client.disconnect();
         System.exit(NORMAL);
     }
 }
