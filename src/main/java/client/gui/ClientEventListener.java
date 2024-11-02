@@ -7,17 +7,17 @@
 
 package client.gui;
 
-import clientServer.SystemInfo;
-import server.gui.NewPollWindow;
+import clientServer.gui.BaseWindow;
+import clientServer.gui.SystemInfo;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class EventListener implements ActionListener {
-    private final MainWindow mainWindow;
-    private final MenuHandler menuHandler;
+public class ClientEventListener implements ActionListener {
+    private final ClientMainWindow mainWindow;
+    private final ClientMenuHandler menuHandler;
 
-    EventListener(MainWindow mainwindow, MenuHandler menuHandler) {
+    ClientEventListener(ClientMainWindow mainwindow, ClientMenuHandler menuHandler) {
         this.mainWindow = mainwindow;
         this.menuHandler = menuHandler;
     }

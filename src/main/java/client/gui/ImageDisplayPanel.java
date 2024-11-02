@@ -2,7 +2,7 @@
 
 package client.gui;
 
-import clientServer.SystemInfo;
+import clientServer.gui.SystemInfo;
 import lombok.extern.log4j.Log4j2;
 
 import java.awt.Graphics;

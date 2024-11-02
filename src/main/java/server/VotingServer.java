@@ -1,7 +1,8 @@
 package server;
 
-import client.ClientSocket;
+import clientServer.ClientSocket;
 import clientServer.Poll;
+import server.gui.ServerMainWindow;
 import server.reports.FinalReport;
 
 import java.io.IOException;
@@ -18,6 +19,7 @@ public class VotingServer {
     private final Map<String, String> votes = new HashMap<>(); // Armazena CPF e voto
     private ObjectOutputStream outputStream;
     private ObjectInputStream inputStream;
+    private boolean serverRunning;
 
     public VotingServer() {
         List<String> options = List.of("Java", "Python", "JavaScript", "C++");
@@ -43,6 +45,7 @@ public class VotingServer {
         try {
             serverSocket = new ServerSocket(PORT); // Cria socket do servidor na porta 4000
             System.out.println("Servidor de Votação iniciado na porta " + PORT);
+            serverRunning = true;
             clientConnection();
         } catch (IOException e) {
             throw new RuntimeException(e);
@@ -67,7 +70,7 @@ public class VotingServer {
             outputStream = new ObjectOutputStream(clientSocket.getSocket().getOutputStream());
             inputStream = new ObjectInputStream(clientSocket.getSocket().getInputStream());
 
-            while (true) { // while server is running?
+            while (serverRunning) {
 
                 // 1. Recebe o CPF do cliente para verificar
                 String message = (String) inputStream.readObject();
@@ -111,7 +114,8 @@ public class VotingServer {
     }
 
     public static void main(String[] args) {
-        VotingServer server = new VotingServer();
-        server.startServer();
+//        VotingServer server = new VotingServer();
+//        //server.startServer();
+        (new ServerMainWindow(new VotingServer())).initInterface();
     }
 }

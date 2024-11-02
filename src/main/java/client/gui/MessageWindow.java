@@ -3,7 +3,7 @@
 
 package client.gui;
 
-import clientServer.SystemInfo;
+import clientServer.gui.SystemInfo;
 
 import java.awt.*;
 import java.io.Serial;
@@ -12,14 +12,14 @@ import javax.swing.*;
 import javax.swing.border.LineBorder;
 import javax.swing.border.TitledBorder;
 
-class MessageWindow extends JDialog {
+public class MessageWindow extends JDialog {
     @Serial
     private static final long serialVersionUID = 1L;
     private final JPanel textPanel;
     private final ImageDisplayPanel imagePanel;
     private final JTextArea textArea;
 
-    MessageWindow(JFrame mainWindow, String title, String text) throws HeadlessException {
+    public MessageWindow(JFrame mainWindow, String title, String text) throws HeadlessException {
         super(mainWindow, title);
 
         setSize(800, 320);

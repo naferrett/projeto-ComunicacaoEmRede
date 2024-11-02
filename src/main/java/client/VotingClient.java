@@ -5,7 +5,7 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.net.Socket;
 
-import client.gui.MainWindow;
+import client.gui.ClientMainWindow;
 import clientServer.Poll;
 import server.VotingServer;
 
@@ -24,22 +24,21 @@ public class VotingClient {
             System.out.println("Conectado ao servidor de votação.");
         } catch (IOException e) {
             System.out.println("Erro na conexão com o servidor: " + e.getMessage());
-        } //finally {
-            //disconnect();
-        //}
+        }
     }
 
     public boolean sendCPFToVerification(String cpf) {
         try {
-            outputStream.writeObject(cpf);
+            outputStream.writeObject(cpf);  // Envia o CPF
             outputStream.flush();
 
-            return (boolean) inputStream.readObject();
+            return (boolean) inputStream.readObject();  // Recebe a confirmação do servidor
         } catch (IOException | ClassNotFoundException e) {
             System.out.println("Erro ao verificar CPF: " + e.getMessage());
             return false;
         }
     }
+
 
     public Poll receiveVotingPackage() {
         try {
@@ -50,11 +49,6 @@ public class VotingClient {
             System.out.println("Erro ao receber pacote de votação: " + e.getMessage());
             return null;
         }
-    }
-
-    // no usages?
-    public Poll getVotingPackage() {
-        return votingPackage;
     }
 
     public void sendVote(String vote) {
@@ -69,7 +63,7 @@ public class VotingClient {
     public void disconnect() {
         try {
             if (outputStream != null) {
-                outputStream.writeObject("Client disconnected.");  // Envia mensagem de desconexão
+                outputStream.writeObject("Client disconnected.");
                 outputStream.flush();
             }
 
@@ -84,7 +78,7 @@ public class VotingClient {
 
     public static void main(String[] args) {
         try {
-            (new MainWindow(new VotingClient())).initInterface();
+            (new ClientMainWindow(new VotingClient())).initInterface();
         } catch (Exception e) {
             e.printStackTrace();
         } //catch (HeadlessException ex) {
