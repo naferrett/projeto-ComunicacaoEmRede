@@ -92,6 +92,10 @@ public class VotingClient {
             (new MainWindow(new VotingClient())).initInterface();
         } catch (Exception e) {
             e.printStackTrace();
-        }
+        } //catch (HeadlessException ex) {
+//            log.error("Exceção do tipo HeadLessException capturada: " + ex);
+//        } catch (Exception ex) {
+//            log.error("Exceção genérica capturada: " + ex);
+//        }
     }
 }
