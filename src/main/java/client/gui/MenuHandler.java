@@ -1,5 +1,5 @@
 /*
- * A classe MenuHandler é responsável por criar e adicionar os menus à barra de menus da janela principal,
+ * A classe ServerMenuHandler é responsável por criar e adicionar os menus à barra de menus da janela principal,
  * inserindo os menus de Arquivo, Configuração e Ajuda.
  */
 

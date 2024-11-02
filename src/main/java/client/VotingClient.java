@@ -28,6 +28,7 @@ public class VotingClient {
             //disconnect();
         //}
     }
+
     public boolean sendCPFToVerification(String cpf) {
         try {
             outputStream.writeObject(cpf);
@@ -67,6 +68,11 @@ public class VotingClient {
 
     public void disconnect() {
         try {
+            if (outputStream != null) {
+                outputStream.writeObject("Client disconnected.");  // Envia mensagem de desconexão
+                outputStream.flush();
+            }
+
             if (socket != null && !socket.isClosed()) {
                 socket.close();
                 System.out.println("Conexão com o servidor encerrada.");

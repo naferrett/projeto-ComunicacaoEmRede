@@ -117,8 +117,8 @@ public class MainWindow extends JFrame {
         confirmButton.addActionListener(e -> {
             String cpf = cpfField.getText();
 
-            if (cpf.isEmpty()) {
-                JOptionPane.showMessageDialog(this, "Por favor, insira o CPF.", "Erro", JOptionPane.ERROR_MESSAGE);
+            if (cpf.isEmpty() || !cpf.matches("\\d{11}")) {
+                JOptionPane.showMessageDialog(this, "Por favor, insira o CPF válido.", "Erro", JOptionPane.ERROR_MESSAGE);
             } else {
                 boolean validCPF = client.sendCPFToVerification(cpf);
 
