@@ -43,21 +43,10 @@ public class VotingServer {
             ClientSocket clientSocket = new ClientSocket(serverSocket.accept());  // Aguarda conexões
             clientSocketList.add(clientSocket);
 
-            new Thread(() -> sendVotingPackage(clientSocket)).start();
             new Thread(() -> clientMessageLoop(clientSocket)).start();
         }
     }
 
-    private void sendVotingPackage(ClientSocket clientSocket) {
-        try {
-            // envia o objeto pela rede até o cliente
-            outputStream = new ObjectOutputStream(clientSocket.getSocket().getOutputStream());
-            outputStream.writeObject(pollPackage);
-            outputStream.flush();
-        } catch (IOException e) {
-            System.out.println("Erro ao enviar pacote de votação: " + e.getMessage());
-        }
-    }
     private boolean verifyClientCPF(String cpf) {
         return !votes.containsKey(cpf); // Retorna true se o CPF ainda não foi usado
     }
@@ -66,19 +55,24 @@ public class VotingServer {
         try {
             outputStream = new ObjectOutputStream(clientSocket.getSocket().getOutputStream());
             inputStream = new ObjectInputStream(clientSocket.getSocket().getInputStream());
-            while (true) {
-                String cpf = (String) inputStream.readObject();
-                boolean isCpfValid = verifyClientCPF(cpf);
 
-                outputStream.writeObject(isCpfValid);
+            // 1. Recebe o CPF do cliente para verificar
+            String cpf = (String) inputStream.readObject();
+            boolean isCpfValid = verifyClientCPF(cpf);
+
+            // 2. Envia a resposta sobre a validade do CPF
+            outputStream.writeObject(isCpfValid);
+            outputStream.flush();
+
+            if(isCpfValid) {
+                // 3. Se o CPF for válido, envia o pacote de votação
+                outputStream.writeObject(pollPackage);
                 outputStream.flush();
 
-                if(isCpfValid) {
-                    String vote = (String) inputStream.readObject();
-
-                    votes.put(cpf, vote);
-                    System.out.println("Voto registrado. CPF: " + cpf + " Votou: " + vote);
-                }
+                // 4. Recebe o voto do cliente e armazena no mapa de votos
+                String vote = (String) inputStream.readObject();
+                votes.put(cpf, vote);
+                System.out.println("Voto registrado. CPF: " + cpf + " Votou: " + vote);
             }
         } catch (Exception e) {
             System.out.println("Erro ao processar cliente: " + e.getMessage());

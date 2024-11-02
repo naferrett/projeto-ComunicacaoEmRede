@@ -1,6 +1,7 @@
 package client.gui;
 
 import client.VotingClient;
+import clientServer.Poll;
 import clientServer.SystemInfo;
 import clientServer.WindowListenerHandler;
 import lombok.extern.log4j.Log4j2;
@@ -120,9 +121,16 @@ public class MainWindow extends JFrame {
                 JOptionPane.showMessageDialog(this, "Por favor, insira o CPF.", "Erro", JOptionPane.ERROR_MESSAGE);
             } else {
                 boolean validCPF = client.sendCPFToVerification(cpf);
+
                 if(validCPF) {
-                    PollWindow poolWindow = new PollWindow(this, client.getVotingPackage().getQuestion(), client.getVotingPackage().getOptions(), client);
-                    poolWindow.setVisible(true);
+                    Poll votingPackage = client.receiveVotingPackage();
+                    if (votingPackage != null) {
+                        //Exibe a janela de votação
+                        PollWindow pollWindow = new PollWindow(this, votingPackage.getQuestion(), votingPackage.getOptions(), client);
+                        pollWindow.setVisible(true);
+                    } else {
+                        JOptionPane.showMessageDialog(this, "Falha ao receber pacote de votação.", "Erro", JOptionPane.ERROR_MESSAGE);
+                    }
                 } else {
                     JOptionPane.showMessageDialog(this, "Esse CPF já foi registrado para votação.", "Erro", JOptionPane.ERROR_MESSAGE);
                 }
