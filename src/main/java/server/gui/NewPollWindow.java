@@ -141,7 +141,7 @@ public class NewPollWindow extends JDialog implements ActionListener {
 
     private void addComponents() {
         setLayout(new BorderLayout());
-        add(poolPanel, BorderLayout.CENTER); // Alterado para CENTER se quiser centralizar todo o conteúdo
+        add(poolPanel, BorderLayout.CENTER);
         add(buttonPanel, BorderLayout.SOUTH);
     }
 

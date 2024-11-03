@@ -14,7 +14,6 @@ import java.awt.*;
 import java.io.IOException;
 import java.io.Serial;
 
-@Log4j2
 public class ServerMainWindow extends BaseWindow {
     private final VotingServer server;
 

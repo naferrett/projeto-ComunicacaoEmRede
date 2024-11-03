@@ -27,7 +27,6 @@ public class WindowListenerHandler implements WindowListener {
 
     @Override
     public void windowClosing(WindowEvent arg0) {
-        //JOptionPane.showMessageDialog(this.reference, "Fechando o programa...", SystemInfo.getVersionName(), JOptionPane.INFORMATION_MESSAGE);
         this.reference.exitInterface();
     }
 

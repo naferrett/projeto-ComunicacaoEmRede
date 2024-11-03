@@ -1,14 +1,16 @@
 package clientServer;
 
+import java.io.Serial;
 import java.io.Serializable;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
 public class Poll implements Serializable {
-    private static final long serialVersionUID = 1L; // Para garantir a compatibilidade de serialização
-    private String question;
-    private List<String> options;
+    @Serial
+    private static final long serialVersionUID = 1L;
+    private final String question;
+    private final List<String> options;
 
     public Poll(String question, List<String> options) {
         this.question = question;

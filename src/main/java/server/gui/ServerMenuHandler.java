@@ -8,10 +8,8 @@ public class ServerMenuHandler {
 
     @Getter
     private JMenuItem newPollItem;
-
     @Getter
     private JMenuItem closePollItem;
-
     ServerMainWindow mainWindow;
 
     public ServerMenuHandler(ServerMainWindow mainWindow) {

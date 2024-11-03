@@ -12,6 +12,7 @@ import java.util.List;
 public class PollWindow extends JDialog {
     private final ButtonGroup buttonGroup;
     VotingClient votingClient;
+
     public PollWindow(JFrame parent, String title, List<String> options, VotingClient votingClient) {
         super(parent, title, true);
 
@@ -21,15 +22,12 @@ public class PollWindow extends JDialog {
         this.setSize(300, 300);
         this.setLocationRelativeTo(parent);
 
-        // Título da Votação
         JLabel titleLabel = new JLabel("Votação: " + title);
         titleLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
 
-        // Painel para as opções de votação
         JPanel optionsPanel = new JPanel();
         optionsPanel.setLayout(new BoxLayout(optionsPanel, BoxLayout.Y_AXIS));
 
-        // Adicionando as opções de votação
         buttonGroup = new ButtonGroup();
         for (String option : options) {
             JRadioButton radioButton = new JRadioButton(option);
@@ -38,38 +36,35 @@ public class PollWindow extends JDialog {
             optionsPanel.add(radioButton);
         }
 
-        // JScrollPane para as opções
         JScrollPane scrollPane = new JScrollPane(optionsPanel);
         scrollPane.setPreferredSize(new Dimension(250, 150));  // Define o tamanho máximo visível para as opções
         scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
 
-        // Botão de confirmar voto
         JButton confirmButton = new JButton("Confirmar Voto");
         confirmButton.setAlignmentX(Component.CENTER_ALIGNMENT);
-        confirmButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                if (getSelectedOption() != null) {
-                    votingClient.sendVote(getSelectedOption());
-                    JOptionPane.showMessageDialog(PollWindow.this, "Voto confirmado: " + getSelectedOption(), "Confirmação", JOptionPane.INFORMATION_MESSAGE);
-                    dispose(); // Fecha a janela após confirmar o voto
-                } else {
-                    JOptionPane.showMessageDialog(PollWindow.this, "Selecione uma opção para votar.", "Aviso", JOptionPane.WARNING_MESSAGE);
-                }
-            }
-        });
+        confirmButton.addActionListener(e -> handleVote());
 
-        // Adicionando componentes ao PollWindow
         add(Box.createVerticalStrut(10));
         add(titleLabel);
         add(Box.createVerticalStrut(10));
-        add(scrollPane);  // Adiciona o scrollPane com as opções
+        add(scrollPane);
         add(Box.createVerticalStrut(10));
         add(confirmButton);
         add(Box.createVerticalStrut(10));
     }
 
-    // Método para obter a opção selecionada
+    private void handleVote() {
+        String selectedOption = getSelectedOption();
+        if (selectedOption != null) {
+            votingClient.sendVote(selectedOption);
+            JOptionPane.showMessageDialog(this, "Voto confirmado: " + selectedOption, "Confirmação", JOptionPane.INFORMATION_MESSAGE);
+            setVisible(false);
+        } else {
+            JOptionPane.showMessageDialog(this, "Selecione uma opção para votar.", "Aviso", JOptionPane.ERROR_MESSAGE);
+        }
+    }
+
+
     public String getSelectedOption() {
         for (Enumeration<AbstractButton> buttons = buttonGroup.getElements(); buttons.hasMoreElements(); ) {
             AbstractButton button = buttons.nextElement();

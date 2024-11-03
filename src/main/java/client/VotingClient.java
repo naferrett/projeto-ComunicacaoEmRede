@@ -1,5 +1,6 @@
 package client;
 
+import java.awt.*;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
@@ -10,18 +11,18 @@ import clientServer.Poll;
 import server.VotingServer;
 
 public class VotingClient {
-    private static final String SERVER_ADDRESS = "127.0.0.1";
+    private static final String SERVER_ADDRESS = "172.29.240.1"; // 127.0.0.1
     private Socket socket;
     private Poll votingPackage;
     private ObjectOutputStream outputStream;
     private ObjectInputStream inputStream;
 
-    public void start() throws IOException {
+    public void start() {
         try {
             socket = new Socket(SERVER_ADDRESS, VotingServer.PORT);
             outputStream = new ObjectOutputStream(socket.getOutputStream());
             inputStream = new ObjectInputStream(socket.getInputStream());
-            System.out.println("Conectado ao servidor de votação.");
+            //System.out.println("Conectado ao servidor de votação.");
         } catch (IOException e) {
             System.out.println("Erro na conexão com o servidor: " + e.getMessage());
         }
@@ -29,10 +30,10 @@ public class VotingClient {
 
     public boolean sendCPFToVerification(String cpf) {
         try {
-            outputStream.writeObject(cpf);  // Envia o CPF
+            outputStream.writeObject(cpf);
             outputStream.flush();
 
-            return (boolean) inputStream.readObject();  // Recebe a confirmação do servidor
+            return (boolean) inputStream.readObject();
         } catch (IOException | ClassNotFoundException e) {
             System.out.println("Erro ao verificar CPF: " + e.getMessage());
             return false;
@@ -42,7 +43,6 @@ public class VotingClient {
 
     public Poll receiveVotingPackage() {
         try {
-            // Recebe o pacote de votação do servidor
             votingPackage = (Poll) inputStream.readObject();
             return votingPackage;
         } catch (IOException | ClassNotFoundException e) {
@@ -69,7 +69,7 @@ public class VotingClient {
 
             if (socket != null && !socket.isClosed()) {
                 socket.close();
-                System.out.println("Conexão com o servidor encerrada.");
+                //System.out.println("Conexão com o servidor encerrada.");
             }
         } catch (IOException e) {
             System.out.println("Erro ao fechar a conexão: " + e.getMessage());
@@ -79,12 +79,10 @@ public class VotingClient {
     public static void main(String[] args) {
         try {
             (new ClientMainWindow(new VotingClient())).initInterface();
+        } catch (HeadlessException e) {
+            System.out.println("Exceção do tipo HeadLessException capturada: " + e.getMessage());
         } catch (Exception e) {
-            e.printStackTrace();
-        } //catch (HeadlessException ex) {
-//            log.error("Exceção do tipo HeadLessException capturada: " + ex);
-//        } catch (Exception ex) {
-//            log.error("Exceção genérica capturada: " + ex);
-//        }
+            System.out.println("Exceção genérica capturada: " + e.getMessage());
+        }
     }
 }

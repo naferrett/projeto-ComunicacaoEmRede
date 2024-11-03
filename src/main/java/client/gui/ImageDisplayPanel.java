@@ -14,7 +14,6 @@ import java.net.URL;
 import javax.imageio.ImageIO;
 import javax.swing.JPanel;
 
-@Log4j2
 class ImageDisplayPanel extends JPanel {
     @Serial
     private static final long serialVersionUID = 1L;
@@ -28,8 +27,8 @@ class ImageDisplayPanel extends JPanel {
             URL auxURL = this.getClass().getResource(SystemInfo.systemImage);
             Image currentImage = ImageIO.read(auxURL);
             auxGraphics.drawImage(currentImage, 20, 50, 180, 190, 0, 0, currentImage.getWidth(null), currentImage.getHeight(null), null);
-        } catch (IOException ex) {
-            log.error(ex);
+        } catch (IOException e) {
+            System.out.println("Exceção do tipo IOException capturada: " + e.getMessage());
         }
     }
 

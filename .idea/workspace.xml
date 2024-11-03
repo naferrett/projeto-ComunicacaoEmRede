@@ -4,16 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="af809e2b-38fa-4de0-ae51-fc75a94a1a9a" name="Changes" comment="new thread for server interface">
+    <list default="true" id="af809e2b-38fa-4de0-ae51-fc75a94a1a9a" name="Changes" comment="new window to add a poll">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/relatorioFinal.txt" beforeDir="false" afterPath="$PROJECT_DIR$/relatorioFinal.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/client/VotingClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client/VotingClient.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/client/gui/ClientMainWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client/gui/ClientMainWindow.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/clientServer/gui/BaseWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/clientServer/gui/BaseWindow.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/client/gui/ImageDisplayPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client/gui/ImageDisplayPanel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/server/VotingServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/server/VotingServer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/server/gui/LiveReportWindow.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/server/gui/NewPollWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/server/gui/NewPollWindow.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/server/gui/ServerEventListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/server/gui/ServerEventListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/server/gui/ServerMainWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/server/gui/ServerMainWindow.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/server/gui/ServerMenuHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/server/gui/ServerMenuHandler.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -177,7 +174,8 @@
       <workItem from="1730562518312" duration="981000" />
       <workItem from="1730574133411" duration="13571000" />
       <workItem from="1730588630487" duration="34000" />
-      <workItem from="1730642821210" duration="7905000" />
+      <workItem from="1730642821210" duration="8670000" />
+      <workItem from="1730671138267" duration="949000" />
     </task>
     <task id="LOCAL-00001" summary="first version - gui">
       <option name="closed" value="true" />
@@ -259,7 +257,15 @@
       <option name="project" value="LOCAL" />
       <updated>1730644153561</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="new window to add a poll">
+      <option name="closed" value="true" />
+      <created>1730650888225</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1730650888225</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -275,6 +281,7 @@
     <MESSAGE value="creating reports" />
     <MESSAGE value="new interfaces for server and client" />
     <MESSAGE value="new thread for server interface" />
-    <option name="LAST_COMMIT_MESSAGE" value="new thread for server interface" />
+    <MESSAGE value="new window to add a poll" />
+    <option name="LAST_COMMIT_MESSAGE" value="new window to add a poll" />
   </component>
 </project>

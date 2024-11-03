@@ -11,7 +11,6 @@ import java.awt.event.ActionListener;
 import java.io.IOException;
 import java.io.Serial;
 
-@Log4j2
 public class BaseWindow extends JFrame implements ClosableWindow {
     @Serial
     private static final long serialVersionUID = 1L;
@@ -34,7 +33,6 @@ public class BaseWindow extends JFrame implements ClosableWindow {
             this.setIconImage(ImageIO.read(this.getClass().getResource(SystemInfo.iconImage)));
         } catch (IOException | NullPointerException ex) {
             JOptionPane.showMessageDialog(this, "Erro ao carregar o ícone.", "Erro", JOptionPane.ERROR_MESSAGE);
-            log.error(ex);
         }
     }
 

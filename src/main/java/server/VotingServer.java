@@ -9,13 +9,16 @@ import lombok.Setter;
 import server.gui.ServerMainWindow;
 import server.reports.FinalReport;
 
+import java.awt.*;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.net.InetAddress;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.net.SocketException;
 import java.util.*;
+import java.util.List;
 
 public class VotingServer {
     public static final int PORT = 4000;
@@ -42,7 +45,7 @@ public class VotingServer {
 
     public void startServer() {
         try {
-            serverSocket = new ServerSocket(PORT); // Cria socket do servidor na porta 4000
+            serverSocket = new ServerSocket(PORT, 50, InetAddress.getByName("0.0.0.0")); // Cria socket do servidor na porta 4000
             System.out.println("Servidor de Votação iniciado na porta " + PORT);
             serverRunning = true;
 
@@ -124,12 +127,13 @@ public class VotingServer {
         this.pollPackage = newPoll;
     }
 
-
     public static void main(String[] args) {
         try {
             (new ServerMainWindow(new VotingServer())).initInterface();
+        } catch (HeadlessException e) {
+            System.out.println("Exceção do tipo HeadLessException capturada: " + e.getMessage());
         } catch (Exception e) {
-            e.printStackTrace();
+            System.out.println("Exceção genérica capturada: " + e.getMessage());
         }
     }
 }

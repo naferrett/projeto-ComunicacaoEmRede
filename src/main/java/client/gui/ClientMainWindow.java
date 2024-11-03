@@ -10,15 +10,14 @@ import javax.swing.*;
 import java.awt.*;
 import java.io.IOException;
 
-@Log4j2
 public class ClientMainWindow extends BaseWindow {
     private final VotingClient client;
 
     public ClientMainWindow(VotingClient votingClient) throws IOException {
-        super();  // Chama o construtor de BaseWindow
+        super();
 
         this.client = votingClient;
-        client.start();  // Conecta ao servidor
+        client.start();
 
         initAddComponents();
     }
@@ -27,7 +26,7 @@ public class ClientMainWindow extends BaseWindow {
         initStatusPanel();
         initWindowListener();
         initMenu();
-        initBackGround();  // Configura o painel de votação
+        initBackGround();
     }
 
     public void initBackGround() {
