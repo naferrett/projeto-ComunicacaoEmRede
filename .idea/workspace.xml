@@ -4,11 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="af809e2b-38fa-4de0-ae51-fc75a94a1a9a" name="Changes" comment="new interfaces for server and client">
+    <list default="true" id="af809e2b-38fa-4de0-ae51-fc75a94a1a9a" name="Changes" comment="new thread for server interface">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/client/gui/ClientMainWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client/gui/ClientMainWindow.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/clientServer/gui/BaseWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/clientServer/gui/BaseWindow.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/server/VotingServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/server/VotingServer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/server/gui/LiveReportWindow.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/server/gui/NewPollWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/server/gui/NewPollWindow.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/server/gui/ServerEventListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/server/gui/ServerEventListener.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/server/gui/ServerMainWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/server/gui/ServerMainWindow.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/server/gui/ServerMenuHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/server/gui/ServerMenuHandler.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -64,7 +69,7 @@
       <recent name="C:\Users\nathf\OneDrive\Documentos\unicamp\matérias\POO II\Projeto-II-ComunicacaoEmRede\src\main\resources" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.VotingServer">
+  <component name="RunManager" selected="Application.VotingClient">
     <configuration name="ChatServer" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="teste.ChatServer" />
       <module name="Projeto-II-ComunicacaoEmRede" />
@@ -139,8 +144,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.VotingServer" />
         <item itemvalue="Application.VotingClient" />
+        <item itemvalue="Application.VotingServer" />
         <item itemvalue="Application.client.gui.MainTeste" />
         <item itemvalue="Application.MainTeste" />
         <item itemvalue="Application.ChatServer" />
@@ -172,7 +177,7 @@
       <workItem from="1730562518312" duration="981000" />
       <workItem from="1730574133411" duration="13571000" />
       <workItem from="1730588630487" duration="34000" />
-      <workItem from="1730642821210" duration="1293000" />
+      <workItem from="1730642821210" duration="7905000" />
     </task>
     <task id="LOCAL-00001" summary="first version - gui">
       <option name="closed" value="true" />
@@ -246,7 +251,15 @@
       <option name="project" value="LOCAL" />
       <updated>1730588654801</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="new thread for server interface">
+      <option name="closed" value="true" />
+      <created>1730644153561</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1730644153561</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -261,6 +274,7 @@
     <MESSAGE value="checks cpf before receiving voting package" />
     <MESSAGE value="creating reports" />
     <MESSAGE value="new interfaces for server and client" />
-    <option name="LAST_COMMIT_MESSAGE" value="new interfaces for server and client" />
+    <MESSAGE value="new thread for server interface" />
+    <option name="LAST_COMMIT_MESSAGE" value="new thread for server interface" />
   </component>
 </project>

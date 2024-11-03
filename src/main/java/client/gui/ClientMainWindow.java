@@ -3,6 +3,7 @@ package client.gui;
 import client.VotingClient;
 import clientServer.gui.BaseWindow;
 import clientServer.Poll;
+import clientServer.gui.SystemInfo;
 import lombok.extern.log4j.Log4j2;
 
 import javax.swing.*;
@@ -19,15 +20,14 @@ public class ClientMainWindow extends BaseWindow {
         this.client = votingClient;
         client.start();  // Conecta ao servidor
 
-        initInterface();
+        initAddComponents();
     }
 
-    public void initInterface() {
+    public void initAddComponents() {
         initStatusPanel();
         initWindowListener();
         initMenu();
         initBackGround();  // Configura o painel de votação
-        setVisible(true);
     }
 
     public void initBackGround() {

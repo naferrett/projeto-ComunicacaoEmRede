@@ -1,12 +1,18 @@
 package server.gui;
 
+import clientServer.Poll;
 import clientServer.gui.BaseWindow;
+import server.VotingServer;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.Serial;
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 import javax.swing.border.LineBorder;
 import javax.swing.border.TitledBorder;
 
@@ -14,22 +20,25 @@ public class NewPollWindow extends JDialog implements ActionListener {
     @Serial
     private static final long serialVersionUID = 1L;
     private final JPanel poolPanel;
-    private final JPanel textPanel;
     private final JPanel inputPanel;
     private final JPanel buttonPanel;
     private JButton cancelButton;
-    private JButton sendPoolButton;
-    private JButton confirmPoolTitleButton;
-    private JButton confirmPoolOptionButton;
-    private JTextField poolTitle;
-    private JTextField poolOption;
+    private JButton sendPollButton;
+    private JButton confirmPollOptionButton;
+    private JTextField pollTitle;
+    private JTextField pollOption;
+    private List<String> pollOptions;
     private final JTextArea textArea;
+    private VotingServer server;
     private BaseWindow mainWindow;
 
-    NewPollWindow(JFrame window, String title, String text, BaseWindow mainWindow) throws HeadlessException {
+    NewPollWindow(JFrame window, String title, String text, BaseWindow mainWindow, VotingServer server) throws HeadlessException {
         super(window, title);
 
         this.mainWindow = mainWindow;
+        this.server = server;
+
+        pollOptions = new ArrayList<>();
 
         setSize(600, 300);
         setResizable(false);
@@ -41,7 +50,7 @@ public class NewPollWindow extends JDialog implements ActionListener {
         formatTextArea();
 
         JScrollPane scrollPane = createScrollPane(textArea);
-        textPanel = createTextPanel(scrollPane);
+        JPanel textPanel = createTextPanel(scrollPane);
 
         inputPanel = createInputPanel();
 
@@ -55,14 +64,12 @@ public class NewPollWindow extends JDialog implements ActionListener {
         JPanel panel = new JPanel();
         panel.setBackground(Color.white);
         panel.setBorder(new TitledBorder(new LineBorder(Color.gray), "Nova Votação"));
-        panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS)); // Usando BoxLayout para empilhar componentes verticalmente
+        panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
 
-        // Adicionando o JScrollPane com a JTextArea ao poolPanel
-        JScrollPane scrollPane = createScrollPane(textArea); // Crie o scrollPane com a textArea
-        panel.add(scrollPane); // Adiciona o scrollPane ao poolPanel
+        JScrollPane scrollPane = createScrollPane(textArea);
+        panel.add(scrollPane);
 
-        // Adicionando o inputPanel ao poolPanel
-        panel.add(inputPanel); // Adiciona o inputPanel abaixo do scrollPane
+        panel.add(inputPanel);
 
         return panel;
     }
@@ -80,7 +87,6 @@ public class NewPollWindow extends JDialog implements ActionListener {
     private JPanel createTextPanel(JScrollPane scrollPane) {
         JPanel panel = new JPanel();
         panel.setBackground(Color.white);
-        //panel.setBorder(new TitledBorder(new LineBorder(Color.gray), SystemInfo.name));
         panel.setLayout(new BorderLayout());
         panel.add(scrollPane, BorderLayout.CENTER);
         return panel;
@@ -91,63 +97,47 @@ public class NewPollWindow extends JDialog implements ActionListener {
         inputPanel.setLayout(new BoxLayout(inputPanel, BoxLayout.Y_AXIS));
         inputPanel.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
 
-        // Painel para título da votação
         JPanel titlePanel = new JPanel(new BorderLayout());
         JLabel insertTitle = new JLabel("Insira o título da votação:");
         insertTitle.setAlignmentX(Component.LEFT_ALIGNMENT);
-        poolTitle = new JTextField(20);
+        pollTitle = new JTextField(20);
         titlePanel.add(insertTitle, BorderLayout.NORTH);
-        titlePanel.add(poolTitle, BorderLayout.CENTER);
+        titlePanel.add(pollTitle, BorderLayout.CENTER);
 
-        // Painel para botão de título
-        JPanel titleButtonPanel = new JPanel(new FlowLayout(FlowLayout.CENTER));
-        confirmPoolTitleButton = new JButton("Enviar Título da Votação");
-        confirmPoolTitleButton.addActionListener(this);
-        titleButtonPanel.add(confirmPoolTitleButton);
-
-        // Painel para opções da votação
         JPanel optionPanel = new JPanel(new BorderLayout());
         JLabel insertOptions = new JLabel("Insira as opções da votação:");
         insertOptions.setAlignmentX(Component.LEFT_ALIGNMENT);
-        poolOption = new JTextField(20);
+        pollOption = new JTextField(20);
         optionPanel.add(insertOptions, BorderLayout.NORTH);
-        optionPanel.add(poolOption, BorderLayout.CENTER);
+        optionPanel.add(pollOption, BorderLayout.CENTER);
 
-        // Painel para botão de opção
         JPanel optionButtonPanel = new JPanel(new FlowLayout(FlowLayout.CENTER));
-        confirmPoolOptionButton = new JButton("Enviar Opção");
-        confirmPoolOptionButton.addActionListener(this);
-        optionButtonPanel.add(confirmPoolOptionButton);
+        confirmPollOptionButton = new JButton("Enviar Opção");
+        confirmPollOptionButton.addActionListener(this);
+        optionButtonPanel.add(confirmPollOptionButton);
 
-        // Adicionando os painéis ao painel principal de entrada
         inputPanel.add(titlePanel);
-        inputPanel.add(Box.createVerticalStrut(5)); // Espaçamento entre título e botão
-        inputPanel.add(titleButtonPanel);
-        //inputPanel.add(Box.createVerticalStrut(15)); // Espaçamento entre título e opção
+        inputPanel.add(Box.createVerticalStrut(5));
         inputPanel.add(optionPanel);
-        //inputPanel.add(Box.createVerticalStrut(5)); // Espaçamento entre opção e botão
         inputPanel.add(optionButtonPanel);
 
         return inputPanel;
     }
 
-
     private JPanel createButtonPanel() {
         JPanel buttonPanel = new JPanel();
 
         cancelButton = new JButton("Cancelar");
-        sendPoolButton = new JButton("Confirmar");
+        sendPollButton = new JButton("Confirmar");
 
         cancelButton.addActionListener(this);
-        sendPoolButton.addActionListener(this);
+        sendPollButton.addActionListener(this);
 
         buttonPanel.add(cancelButton);
-        buttonPanel.add(sendPoolButton);
+        buttonPanel.add(sendPollButton);
 
         return buttonPanel;
     }
-
-
 
     private void addComponents() {
         setLayout(new BorderLayout());
@@ -167,19 +157,33 @@ public class NewPollWindow extends JDialog implements ActionListener {
         textArea.setMargin(new Insets(10, 10, 10, 10));
     }
 
+    private boolean duplicateOptions(List<String> options) {
+        Set<String> findDuplicate = new HashSet<>();
+        for (String option : options) {
+            if (!findDuplicate.add(option)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
     @Override
     public void actionPerformed(ActionEvent event) {
-//        if (event.getSource() == confirmPoolTitleButton) {
-//            mainWindow.setPoolTitle(poolTitle.getText());
-//        }
-//
-//        if (event.getSource() == confirmPoolOptionButton) {
-//            mainWindow.getPoolOptions().add(poolOption.getText());
-//            poolOption.setText("");
-//        }
+        if (event.getSource() == confirmPollOptionButton) {
+            pollOptions.add(pollOption.getText());
 
-        if (event.getSource() == sendPoolButton) {
-            // to-do
+            if(duplicateOptions(pollOptions)) { // n ta aparecendo
+                JOptionPane.showMessageDialog(mainWindow, "A lista de opções de votação não aceita duplicatas.", "Erro", JOptionPane.ERROR_MESSAGE);
+                pollOptions.remove(pollOption.getText());
+            }
+            pollOption.setText("");
+        }
+
+        if (event.getSource() == sendPollButton) {
+            Poll newPoll = new Poll(pollTitle.getText(), pollOptions);
+            this.server.setPollPackage(newPoll);
+
+            setVisible(false);
         }
 
         if (event.getSource() == cancelButton) {

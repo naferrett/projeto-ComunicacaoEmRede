@@ -38,6 +38,11 @@ public class BaseWindow extends JFrame implements ClosableWindow {
         }
     }
 
+    public void initInterface() {
+        this.setStatusMessage(SystemInfo.university);
+        setVisible(true);
+    }
+
     public void setStatusMessage(String message) {
         this.labelStatus.setText(message);
     }

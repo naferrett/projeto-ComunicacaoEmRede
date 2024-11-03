@@ -4,6 +4,8 @@ import client.VotingClient;
 import client.gui.ClientMainWindow;
 import clientServer.ClientSocket;
 import clientServer.Poll;
+import lombok.Getter;
+import lombok.Setter;
 import server.gui.ServerMainWindow;
 import server.reports.FinalReport;
 
@@ -11,44 +13,48 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.net.ServerSocket;
+import java.net.Socket;
+import java.net.SocketException;
 import java.util.*;
 
 public class VotingServer {
     public static final int PORT = 4000;
     private ServerSocket serverSocket;
     private final List<ClientSocket> clientSocketList = new LinkedList<>();
+
+    @Getter
     private Poll pollPackage;
     private final Map<String, String> votes = new HashMap<>(); // Armazena CPF e voto
     private ObjectOutputStream outputStream;
     private ObjectInputStream inputStream;
+    @Setter
     private boolean serverRunning;
 
-    public VotingServer() {
-        List<String> options = List.of("Java", "Python", "JavaScript", "C++");
-
-        if (duplicateOptions(options)) {
-            throw new IllegalArgumentException("A lista de opções de votação contém duplicatas.");
-        }
-
-        this.pollPackage = new Poll("Qual é a sua linguagem de programação favorita?", options);
-    }
-
-    private boolean duplicateOptions(List<String> options) {
-        Set<String> findDuplicate = new HashSet<>();
-        for (String option : options) {
-            if (!findDuplicate.add(option)) {
-                return true;
-            }
-        }
-        return false;
-    }
+//    public VotingServer() {
+//        List<String> options = List.of("Java", "Python", "JavaScript", "C++");
+//
+//        if (duplicateOptions(options)) {
+//            throw new IllegalArgumentException("A lista de opções de votação contém duplicatas.");
+//        }
+//
+//        this.pollPackage = new Poll("Qual é a sua linguagem de programação favorita?", options);
+//    }
 
     public void startServer() {
         try {
             serverSocket = new ServerSocket(PORT); // Cria socket do servidor na porta 4000
             System.out.println("Servidor de Votação iniciado na porta " + PORT);
             serverRunning = true;
-            clientConnection();
+
+            while (serverRunning) {
+                try {
+                    clientConnection();
+                } catch (SocketException e) {
+                    if (serverRunning) {
+                        throw new RuntimeException("Erro ao aceitar conexão", e);
+                    }
+                }
+            }
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
@@ -73,8 +79,6 @@ public class VotingServer {
             inputStream = new ObjectInputStream(clientSocket.getSocket().getInputStream());
 
             while (serverRunning) {
-
-                // 1. Recebe o CPF do cliente para verificar
                 String message = (String) inputStream.readObject();
 
                 if ("Client disconnected.".equals(message)) {
@@ -83,17 +87,13 @@ public class VotingServer {
 
                 boolean validCpf = verifyClientCPF(message);
 
-
-                // 2. Envia a resposta sobre a validade do CPF
                 outputStream.writeObject(validCpf);
                 outputStream.flush();
 
                 if(validCpf) {
-                    // 3. Se o CPF for válido, envia o pacote de votação
                     outputStream.writeObject(pollPackage);
                     outputStream.flush();
 
-                    // 4. Recebe o voto do cliente e armazena no mapa de votos
                     String vote = (String) inputStream.readObject();
                     votes.put(message, vote);
                     System.out.println("Voto registrado. CPF: " + message + " Votou: " + vote);
@@ -108,12 +108,22 @@ public class VotingServer {
 
     public void closeServer() {
         try {
+            serverRunning = false;
             serverSocket.close();
             (new FinalReport()).generateReport(pollPackage);  // Salva o relatório final
         } catch (IOException e) {
             System.out.println("Erro ao fechar o servidor: " + e.getMessage());
         }
     }
+
+    public boolean getServerRunning() {
+        return serverRunning;
+    }
+
+    public void setPollPackage(Poll newPoll) {
+        this.pollPackage = newPoll;
+    }
+
 
     public static void main(String[] args) {
         try {

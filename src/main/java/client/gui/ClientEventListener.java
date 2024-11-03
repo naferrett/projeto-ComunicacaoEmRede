@@ -24,26 +24,6 @@ public class ClientEventListener implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent event) {
-//        if (event.getSource() == menuHandler.getNewPollItem()) {
-//            mainWindow.setStatusMessage("Opção 'Nova Votação' selecionada!");
-//            showNewPollWindow();
-//        }
-//        if (event.getSource() == menuHandler.getClosePollItem()) {
-//            mainWindow.setStatusMessage("Opção 'Encerrar Votação' selecionada!");
-//            closePollWindow();
-//        }
-//        if (event.getSource() == menuHandler.getExitItem()) {
-//            mainWindow.setStatusMessage("Opção 'Sair' selecionada!");
-//            mainWindow.initInterface();
-//        }
-//        if (event.getSource() == menuHandler.getResultReportItem()) {
-//            mainWindow.setStatusMessage("Opção 'Resultados' selecionada!");
-//            showResultsReport();
-//        }
-//        if (event.getSource() == menuHandler.getVotersReportItem()) {
-//            mainWindow.setStatusMessage("Opção 'Eleitores' selecionada!");
-//            showVotersReport();
-//        }
         if (event.getSource() == menuHandler.getMenuItemHelp()) {
             mainWindow.setStatusMessage("Opção 'Ajuda' selecionada!");
             showHelpMessage();
@@ -52,19 +32,6 @@ public class ClientEventListener implements ActionListener {
             mainWindow.setStatusMessage("Opção 'Créditos' selecionada!");
             showCreditsMessage();
         }
-    }
-
-//    private void showNewPollWindow() {
-//        (new NewPollWindow(mainWindow, "Nova Votação - " + SystemInfo.getVersionName(), SystemInfo.getInstructionsToAddPool(), mainWindow)).setVisible(true);
-//    }
-
-    private void closePollWindow() {
-    }
-
-    private void showResultsReport() {
-    }
-
-    private void showVotersReport() {
     }
 
     private void showHelpMessage() {

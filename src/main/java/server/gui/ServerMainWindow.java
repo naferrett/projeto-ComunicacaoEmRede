@@ -23,14 +23,14 @@ public class ServerMainWindow extends BaseWindow {
 
         this.server = votingServer;
         new Thread(() -> server.startServer()).start();
+
+        initAddComponents();
     }
 
-    public void initInterface() {
+    public void initAddComponents() {
         initStatusPanel();
-        //setStatusMessage();
         initWindowListener();
         initMenu();
-        setVisible(true);
     }
 
     public void initMenu() {
@@ -40,13 +40,15 @@ public class ServerMainWindow extends BaseWindow {
     }
 
     public void initEventListener(ServerMenuHandler menuHandler) {
-        ServerEventListener eventListener = new ServerEventListener(this, menuHandler);
+        ServerEventListener eventListener = new ServerEventListener(this, menuHandler, server);
         addMenuListeners(eventListener);
     }
 
     @Override
     public void exitInterface() {
-        server.closeServer();
+        if(server.getServerRunning()) {
+            server.closeServer();
+        }
         super.exitInterface();
     }
 }

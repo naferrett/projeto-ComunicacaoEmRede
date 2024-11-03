@@ -3,14 +3,19 @@ package server.gui;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import clientServer.gui.SystemInfo;
+import server.VotingServer;
+
+import javax.swing.*;
 
 public class ServerEventListener implements ActionListener {
     private final ServerMainWindow mainWindow;
     private final ServerMenuHandler menuHandler;
+    private final VotingServer server;
 
-    ServerEventListener(ServerMainWindow mainWindow, ServerMenuHandler menuHandler) {
+    ServerEventListener(ServerMainWindow mainWindow, ServerMenuHandler menuHandler, VotingServer server) {
         this.mainWindow = mainWindow;
         this.menuHandler = menuHandler;
+        this.server = server;
     }
 
     @Override
@@ -21,18 +26,12 @@ public class ServerEventListener implements ActionListener {
         }
         if (event.getSource() == menuHandler.getClosePollItem()) {
             mainWindow.setStatusMessage("Opção 'Encerrar Votação' selecionada!");
-            closePollWindow();
-        }
-        if (event.getSource() == menuHandler.getExitItem()) {
-            mainWindow.setStatusMessage("Opção 'Sair' selecionada!");
             mainWindow.exitInterface();
         }
     }
 
     private void showNewPollWindow() {
-        (new NewPollWindow(mainWindow, "Nova Votação - " + SystemInfo.getVersionName(), SystemInfo.getInstructionsToAddPool(), mainWindow)).setVisible(true);
+        (new NewPollWindow(mainWindow, "Nova Votação - " + SystemInfo.getVersionName(), SystemInfo.getInstructionsToAddPool(), mainWindow, server)).setVisible(true);
     }
 
-    private void closePollWindow() {
-    }
 }
