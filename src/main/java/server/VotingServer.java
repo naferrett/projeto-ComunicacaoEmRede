@@ -28,8 +28,6 @@ public class VotingServer {
     @Getter
     private Poll pollPackage;
     private final Map<String, String> votes = new HashMap<>(); // Armazena CPF e voto
-    private ObjectOutputStream outputStream;
-    private ObjectInputStream inputStream;
     @Setter
     private boolean serverRunning;
 
@@ -78,8 +76,8 @@ public class VotingServer {
 
     private void clientVoteLoop(ClientSocket clientSocket) {
         try {
-            outputStream = new ObjectOutputStream(clientSocket.getSocket().getOutputStream());
-            inputStream = new ObjectInputStream(clientSocket.getSocket().getInputStream());
+            ObjectOutputStream outputStream = new ObjectOutputStream(clientSocket.getSocket().getOutputStream());
+            ObjectInputStream inputStream = new ObjectInputStream(clientSocket.getSocket().getInputStream());
 
             while (serverRunning) {
                 String message = (String) inputStream.readObject();

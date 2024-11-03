@@ -3,8 +3,6 @@ package client.gui;
 import client.VotingClient;
 import clientServer.gui.BaseWindow;
 import clientServer.Poll;
-import clientServer.gui.SystemInfo;
-import lombok.extern.log4j.Log4j2;
 
 import javax.swing.*;
 import java.awt.*;
@@ -71,7 +69,7 @@ public class ClientMainWindow extends BaseWindow {
             if (validCPF) {
                 Poll votingPackage = client.receiveVotingPackage();
                 if (votingPackage != null) {
-                    PollWindow pollWindow = new PollWindow(this, votingPackage.getQuestion(), votingPackage.getOptions(), client);
+                    PollWindow pollWindow = new PollWindow(this, votingPackage.getTitle(), votingPackage.getOptions(), client);
                     pollWindow.setVisible(true);
                 } else {
                     JOptionPane.showMessageDialog(this, "Falha ao receber pacote de votação.", "Erro", JOptionPane.ERROR_MESSAGE);

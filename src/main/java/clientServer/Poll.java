@@ -1,27 +1,20 @@
 package clientServer;
 
+import lombok.Getter;
+
 import java.io.Serial;
 import java.io.Serializable;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
+@Getter
 public class Poll implements Serializable {
     @Serial
     private static final long serialVersionUID = 1L;
-    private final String question;
+    private final String title;
     private final List<String> options;
 
-    public Poll(String question, List<String> options) {
-        this.question = question;
+    public Poll(String title, List<String> options) {
+        this.title = title;
         this.options = options;
-    }
-
-    public String getQuestion() {
-        return question;
-    }
-
-    public List<String> getOptions() {
-        return options;
     }
 }
