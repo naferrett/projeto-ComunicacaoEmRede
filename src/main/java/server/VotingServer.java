@@ -1,5 +1,7 @@
 package server;
 
+import client.VotingClient;
+import client.gui.ClientMainWindow;
 import clientServer.ClientSocket;
 import clientServer.Poll;
 import server.gui.ServerMainWindow;
@@ -114,8 +116,10 @@ public class VotingServer {
     }
 
     public static void main(String[] args) {
-//        VotingServer server = new VotingServer();
-//        //server.startServer();
-        (new ServerMainWindow(new VotingServer())).initInterface();
+        try {
+            (new ServerMainWindow(new VotingServer())).initInterface();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }

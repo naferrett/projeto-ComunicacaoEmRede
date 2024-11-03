@@ -4,27 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="af809e2b-38fa-4de0-ae51-fc75a94a1a9a" name="Changes" comment="creating reports">
-      <change afterPath="$PROJECT_DIR$/src/main/java/client/gui/ClientMainWindow.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/clientServer/gui/BaseWindow.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/clientServer/gui/ClosableWindow.java" afterDir="false" />
+    <list default="true" id="af809e2b-38fa-4de0-ae51-fc75a94a1a9a" name="Changes" comment="new interfaces for server and client">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/client/ClientSocket.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/clientServer/ClientSocket.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/client/VotingClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client/VotingClient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/client/gui/EventListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client/gui/ClientEventListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/client/gui/ImageDisplayPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client/gui/ImageDisplayPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/client/gui/MainWindow.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/client/gui/MenuHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client/gui/ClientMenuHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/client/gui/MessageWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client/gui/MessageWindow.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/client/gui/newMainWindowTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/client/terminalvotingcli.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/clientServer/SystemInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/clientServer/gui/SystemInfo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/clientServer/WindowListenerHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/clientServer/gui/WindowListenerHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/client/gui/ClientMainWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client/gui/ClientMainWindow.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/server/VotingServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/server/VotingServer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/server/gui/NewPollWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/server/gui/NewPollWindow.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/server/gui/ServerEventListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/server/gui/ServerEventListener.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/server/gui/ServerMainWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/server/gui/ServerMainWindow.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/server/gui/ServerMenuHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/server/gui/ServerMenuHandler.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,29 +36,29 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.ChatClient.executor": "Run",
-    "Application.ChatServer.executor": "Run",
-    "Application.MainTeste.executor": "Run",
-    "Application.VotingClient.executor": "Run",
-    "Application.VotingServer.executor": "Run",
-    "Application.client.gui.MainTeste.executor": "Run",
-    "Application.client.guiApp.MainTeste.executor": "Run",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "main",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/nathf/OneDrive/Documentos/unicamp/matérias/POO II/Ex-Fixacao/Ex3-Fixacao-Individual",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.ChatClient.executor&quot;: &quot;Run&quot;,
+    &quot;Application.ChatServer.executor&quot;: &quot;Run&quot;,
+    &quot;Application.MainTeste.executor&quot;: &quot;Run&quot;,
+    &quot;Application.VotingClient.executor&quot;: &quot;Run&quot;,
+    &quot;Application.VotingServer.executor&quot;: &quot;Run&quot;,
+    &quot;Application.client.gui.MainTeste.executor&quot;: &quot;Run&quot;,
+    &quot;Application.client.guiApp.MainTeste.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/nathf/OneDrive/Documentos/unicamp/matérias/POO II/Ex-Fixacao/Ex3-Fixacao-Individual&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\nathf\OneDrive\Documentos\unicamp\matérias\POO II\Projeto-II-ComunicacaoEmRede\src\main\resources" />
@@ -187,6 +171,8 @@
       <workItem from="1730502358575" duration="1195000" />
       <workItem from="1730562518312" duration="981000" />
       <workItem from="1730574133411" duration="13571000" />
+      <workItem from="1730588630487" duration="34000" />
+      <workItem from="1730642821210" duration="1293000" />
     </task>
     <task id="LOCAL-00001" summary="first version - gui">
       <option name="closed" value="true" />
@@ -252,7 +238,15 @@
       <option name="project" value="LOCAL" />
       <updated>1730580404415</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="new interfaces for server and client">
+      <option name="closed" value="true" />
+      <created>1730588654801</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1730588654801</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -266,6 +260,7 @@
     <MESSAGE value="additional changes to the previous commit" />
     <MESSAGE value="checks cpf before receiving voting package" />
     <MESSAGE value="creating reports" />
-    <option name="LAST_COMMIT_MESSAGE" value="creating reports" />
+    <MESSAGE value="new interfaces for server and client" />
+    <option name="LAST_COMMIT_MESSAGE" value="new interfaces for server and client" />
   </component>
 </project>

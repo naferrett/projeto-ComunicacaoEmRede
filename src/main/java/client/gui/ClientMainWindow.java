@@ -13,16 +13,11 @@ import java.io.IOException;
 public class ClientMainWindow extends BaseWindow {
     private final VotingClient client;
 
-    public ClientMainWindow(VotingClient votingClient) {
+    public ClientMainWindow(VotingClient votingClient) throws IOException {
         super();  // Chama o construtor de BaseWindow
-        this.client = votingClient;
 
-        try {
-            client.start();  // Conecta ao servidor
-        } catch (IOException e) {
-            JOptionPane.showMessageDialog(this, "Erro ao conectar com o servidor de votação.", "Erro", JOptionPane.ERROR_MESSAGE);
-            log.error(e);
-        }
+        this.client = votingClient;
+        client.start();  // Conecta ao servidor
 
         initInterface();
     }

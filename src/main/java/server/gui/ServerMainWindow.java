@@ -22,14 +22,14 @@ public class ServerMainWindow extends BaseWindow {
         super();
 
         this.server = votingServer;
-        server.startServer();
+        new Thread(() -> server.startServer()).start();
     }
 
     public void initInterface() {
         initStatusPanel();
+        //setStatusMessage();
         initWindowListener();
         initMenu();
-
         setVisible(true);
     }
 
