@@ -2,7 +2,7 @@ package server.gui;
 
 import clientServer.Poll;
 import clientServer.gui.BaseWindow;
-import server.VotingServer;
+import server.PollServer;
 
 import javax.swing.*;
 import java.awt.*;
@@ -29,10 +29,10 @@ public class NewPollWindow extends JDialog implements ActionListener {
     private JTextField pollOption;
     private final List<String> pollOptions;
     private final JTextArea textArea;
-    private final VotingServer server;
+    private final PollServer server;
     private final BaseWindow mainWindow;
 
-    NewPollWindow(JFrame window, String title, String text, BaseWindow mainWindow, VotingServer server) throws HeadlessException {
+    NewPollWindow(JFrame window, String title, String text, BaseWindow mainWindow, PollServer server) throws HeadlessException {
         super(window, title);
 
         this.mainWindow = mainWindow;

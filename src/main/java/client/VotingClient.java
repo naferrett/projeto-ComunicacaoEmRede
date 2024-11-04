@@ -8,7 +8,7 @@ import java.net.Socket;
 
 import client.gui.ClientMainWindow;
 import clientServer.Poll;
-import server.VotingServer;
+import server.PollServer;
 
 public class VotingClient {
     private static final String SERVER_ADDRESS = "172.29.240.1"; // 127.0.0.1
@@ -18,7 +18,7 @@ public class VotingClient {
 
     public void start() {
         try {
-            socket = new Socket(SERVER_ADDRESS, VotingServer.PORT);
+            socket = new Socket(SERVER_ADDRESS, PollServer.PORT);
             outputStream = new ObjectOutputStream(socket.getOutputStream());
             inputStream = new ObjectInputStream(socket.getInputStream());
         } catch (IOException e) {

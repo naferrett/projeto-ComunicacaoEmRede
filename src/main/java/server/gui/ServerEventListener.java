@@ -3,16 +3,14 @@ package server.gui;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import clientServer.gui.SystemInfo;
-import server.VotingServer;
-
-import javax.swing.*;
+import server.PollServer;
 
 public class ServerEventListener implements ActionListener {
     private final ServerMainWindow mainWindow;
     private final ServerMenuHandler menuHandler;
-    private final VotingServer server;
+    private final PollServer server;
 
-    ServerEventListener(ServerMainWindow mainWindow, ServerMenuHandler menuHandler, VotingServer server) {
+    ServerEventListener(ServerMainWindow mainWindow, ServerMenuHandler menuHandler, PollServer server) {
         this.mainWindow = mainWindow;
         this.menuHandler = menuHandler;
         this.server = server;

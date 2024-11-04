@@ -1,23 +1,12 @@
 package server.gui;
 
-import client.VotingClient;
-import client.gui.ClientEventListener;
-import client.gui.ClientMenuHandler;
 import clientServer.gui.BaseWindow;
-import clientServer.gui.SystemInfo;
-import lombok.extern.log4j.Log4j2;
-import server.VotingServer;
-
-import javax.imageio.ImageIO;
-import javax.swing.*;
-import java.awt.*;
-import java.io.IOException;
-import java.io.Serial;
+import server.PollServer;
 
 public class ServerMainWindow extends BaseWindow {
-    private final VotingServer server;
+    private final PollServer server;
 
-    public ServerMainWindow(VotingServer votingServer) {
+    public ServerMainWindow(PollServer votingServer) {
         super();
 
         this.server = votingServer;

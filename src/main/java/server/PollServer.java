@@ -16,7 +16,7 @@ import java.net.SocketException;
 import java.util.*;
 import java.util.List;
 
-public class VotingServer {
+public class PollServer {
     public static final int PORT = 4000;
     private ServerSocket serverSocket;
     private final List<ClientSocket> clientSocketList = new LinkedList<>();
@@ -109,7 +109,7 @@ public class VotingServer {
 
     public static void main(String[] args) {
         try {
-            (new ServerMainWindow(new VotingServer())).initInterface();
+            (new ServerMainWindow(new PollServer())).initInterface();
         } catch (HeadlessException e) {
             System.out.println("Exceção do tipo HeadLessException capturada: " + e.getMessage());
         } catch (Exception e) {
