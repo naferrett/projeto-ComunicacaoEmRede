@@ -18,9 +18,7 @@ public class ServerMenuHandler {
 
     public void createAddToMenu() {
         JMenuBar menuBar = new JMenuBar();
-
         menuBar.add(createPoolMenu());
-
         mainWindow.setJMenuBar(menuBar);
     }
 

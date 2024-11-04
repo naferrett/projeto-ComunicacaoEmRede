@@ -13,7 +13,6 @@ import server.VotingServer;
 public class VotingClient {
     private static final String SERVER_ADDRESS = "172.29.240.1"; // 127.0.0.1
     private Socket socket;
-    private Poll votingPackage;
     private ObjectOutputStream outputStream;
     private ObjectInputStream inputStream;
 
@@ -22,7 +21,6 @@ public class VotingClient {
             socket = new Socket(SERVER_ADDRESS, VotingServer.PORT);
             outputStream = new ObjectOutputStream(socket.getOutputStream());
             inputStream = new ObjectInputStream(socket.getInputStream());
-            //System.out.println("Conectado ao servidor de votação.");
         } catch (IOException e) {
             System.out.println("Erro na conexão com o servidor: " + e.getMessage());
         }
@@ -43,8 +41,7 @@ public class VotingClient {
 
     public Poll receiveVotingPackage() {
         try {
-            votingPackage = (Poll) inputStream.readObject();
-            return votingPackage;
+            return (Poll) inputStream.readObject();
         } catch (IOException | ClassNotFoundException e) {
             System.out.println("Erro ao receber pacote de votação: " + e.getMessage());
             return null;
@@ -69,7 +66,6 @@ public class VotingClient {
 
             if (socket != null && !socket.isClosed()) {
                 socket.close();
-                //System.out.println("Conexão com o servidor encerrada.");
             }
         } catch (IOException e) {
             System.out.println("Erro ao fechar a conexão: " + e.getMessage());

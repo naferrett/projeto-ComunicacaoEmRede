@@ -19,7 +19,7 @@ import javax.swing.border.TitledBorder;
 public class NewPollWindow extends JDialog implements ActionListener {
     @Serial
     private static final long serialVersionUID = 1L;
-    private final JPanel poolPanel;
+    private final JPanel pollPanel;
     private final JPanel inputPanel;
     private final JPanel buttonPanel;
     private JButton cancelButton;
@@ -27,10 +27,10 @@ public class NewPollWindow extends JDialog implements ActionListener {
     private JButton confirmPollOptionButton;
     private JTextField pollTitle;
     private JTextField pollOption;
-    private List<String> pollOptions;
+    private final List<String> pollOptions;
     private final JTextArea textArea;
-    private VotingServer server;
-    private BaseWindow mainWindow;
+    private final VotingServer server;
+    private final BaseWindow mainWindow;
 
     NewPollWindow(JFrame window, String title, String text, BaseWindow mainWindow, VotingServer server) throws HeadlessException {
         super(window, title);
@@ -50,11 +50,11 @@ public class NewPollWindow extends JDialog implements ActionListener {
         formatTextArea();
 
         JScrollPane scrollPane = createScrollPane(textArea);
-        JPanel textPanel = createTextPanel(scrollPane);
+        createTextPanel(scrollPane);
 
         inputPanel = createInputPanel();
 
-        poolPanel = createPoolPanel();
+        pollPanel = createPoolPanel();
         buttonPanel = createButtonPanel();
 
         addComponents();
@@ -84,37 +84,19 @@ public class NewPollWindow extends JDialog implements ActionListener {
         return new JScrollPane(textArea, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
     }
 
-    private JPanel createTextPanel(JScrollPane scrollPane) {
+    private void createTextPanel(JScrollPane scrollPane) {
         JPanel panel = new JPanel();
         panel.setBackground(Color.white);
         panel.setLayout(new BorderLayout());
         panel.add(scrollPane, BorderLayout.CENTER);
-        return panel;
     }
 
     private JPanel createInputPanel() {
-        JPanel inputPanel = new JPanel();
-        inputPanel.setLayout(new BoxLayout(inputPanel, BoxLayout.Y_AXIS));
-        inputPanel.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
+        JPanel inputPanel = createBasePanel();
 
-        JPanel titlePanel = new JPanel(new BorderLayout());
-        JLabel insertTitle = new JLabel("Insira o título da votação:");
-        insertTitle.setAlignmentX(Component.LEFT_ALIGNMENT);
-        pollTitle = new JTextField(20);
-        titlePanel.add(insertTitle, BorderLayout.NORTH);
-        titlePanel.add(pollTitle, BorderLayout.CENTER);
-
-        JPanel optionPanel = new JPanel(new BorderLayout());
-        JLabel insertOptions = new JLabel("Insira as opções da votação:");
-        insertOptions.setAlignmentX(Component.LEFT_ALIGNMENT);
-        pollOption = new JTextField(20);
-        optionPanel.add(insertOptions, BorderLayout.NORTH);
-        optionPanel.add(pollOption, BorderLayout.CENTER);
-
-        JPanel optionButtonPanel = new JPanel(new FlowLayout(FlowLayout.CENTER));
-        confirmPollOptionButton = new JButton("Enviar Opção");
-        confirmPollOptionButton.addActionListener(this);
-        optionButtonPanel.add(confirmPollOptionButton);
+        JPanel titlePanel = createTitlePanel();
+        JPanel optionPanel = createOptionPanel();
+        JPanel optionButtonPanel = createOptionButtonPanel();
 
         inputPanel.add(titlePanel);
         inputPanel.add(Box.createVerticalStrut(5));
@@ -122,6 +104,46 @@ public class NewPollWindow extends JDialog implements ActionListener {
         inputPanel.add(optionButtonPanel);
 
         return inputPanel;
+    }
+
+    private JPanel createBasePanel() {
+        JPanel panel = new JPanel();
+        panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
+        panel.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
+        return panel;
+    }
+
+    private JPanel createTitlePanel() {
+        JPanel titlePanel = new JPanel(new BorderLayout());
+        JLabel insertTitle = new JLabel("Insira o título da votação:");
+        insertTitle.setAlignmentX(Component.LEFT_ALIGNMENT);
+        pollTitle = new JTextField(20);
+
+        titlePanel.add(insertTitle, BorderLayout.NORTH);
+        titlePanel.add(pollTitle, BorderLayout.CENTER);
+
+        return titlePanel;
+    }
+
+    private JPanel createOptionPanel() {
+        JPanel optionPanel = new JPanel(new BorderLayout());
+        JLabel insertOptions = new JLabel("Insira as opções da votação:");
+        insertOptions.setAlignmentX(Component.LEFT_ALIGNMENT);
+        pollOption = new JTextField(20);
+
+        optionPanel.add(insertOptions, BorderLayout.NORTH);
+        optionPanel.add(pollOption, BorderLayout.CENTER);
+
+        return optionPanel;
+    }
+
+    private JPanel createOptionButtonPanel() {
+        JPanel optionButtonPanel = new JPanel(new FlowLayout(FlowLayout.CENTER));
+        confirmPollOptionButton = new JButton("Enviar Opção");
+        confirmPollOptionButton.addActionListener(this);
+        optionButtonPanel.add(confirmPollOptionButton);
+
+        return optionButtonPanel;
     }
 
     private JPanel createButtonPanel() {
@@ -141,7 +163,7 @@ public class NewPollWindow extends JDialog implements ActionListener {
 
     private void addComponents() {
         setLayout(new BorderLayout());
-        add(poolPanel, BorderLayout.CENTER);
+        add(pollPanel, BorderLayout.CENTER);
         add(buttonPanel, BorderLayout.SOUTH);
     }
 
@@ -172,7 +194,7 @@ public class NewPollWindow extends JDialog implements ActionListener {
         if (event.getSource() == confirmPollOptionButton) {
             pollOptions.add(pollOption.getText());
 
-            if(duplicateOptions(pollOptions)) { // n ta aparecendo
+            if(duplicateOptions(pollOptions)) {
                 JOptionPane.showMessageDialog(mainWindow, "A lista de opções de votação não aceita duplicatas.", "Erro", JOptionPane.ERROR_MESSAGE);
                 pollOptions.remove(pollOption.getText());
             }

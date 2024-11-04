@@ -13,10 +13,8 @@ import javax.swing.*;
 public class ClientMenuHandler {
     @Getter
     private JMenuItem menuItemCredits;
-
     @Getter
     private JMenuItem menuItemHelp;
-
     private final ClientMainWindow mainWindow;
 
     public ClientMenuHandler(ClientMainWindow mainWindow) {
@@ -25,9 +23,7 @@ public class ClientMenuHandler {
 
     public void createAddToMenu() {
         JMenuBar menuBar = new JMenuBar();
-
         menuBar.add(createHelpMenu());
-
         mainWindow.setJMenuBar(menuBar);
     }
 
@@ -42,13 +38,11 @@ public class ClientMenuHandler {
 
     private JMenuItem createHelpItem() {
         menuItemHelp = new JMenuItem("Ajuda");
-        menuItemHelp.setActionCommand("Help Message");
         return menuItemHelp;
     }
 
     private JMenuItem createCreditsItem() {
         menuItemCredits = new JMenuItem("Créditos");
-        menuItemCredits.setActionCommand("Credits Message");
         return menuItemCredits;
     }
 }

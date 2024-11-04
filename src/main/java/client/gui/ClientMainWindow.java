@@ -28,37 +28,63 @@ public class ClientMainWindow extends BaseWindow {
     }
 
     public void initBackGround() {
-        JPanel backgroundPanel = new JPanel();
-        backgroundPanel.setLayout(new BoxLayout(backgroundPanel, BoxLayout.Y_AXIS));
-        backgroundPanel.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
+        JPanel backgroundPanel = createBackgroundPanel();
 
-        JLabel instructionLabel = new JLabel("Para votar, digite o CPF (números) e confirme:");
-        instructionLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
+        JLabel instructionLabel = createInstructionLabel();
+        JLabel cpfLabel = createCpfLabel();
+        JTextField cpfField = createCpfField();
+        JButton confirmButton = createConfirmButton(cpfField);
 
-        JLabel cpfLabel = new JLabel("CPF:");
-        cpfLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
-
-        JTextField cpfField = new JTextField();
-        cpfField.setMaximumSize(new Dimension(200, 25));
-        cpfField.setAlignmentX(Component.CENTER_ALIGNMENT);
-
-        JButton confirmButton = new JButton("Confirmar");
-        confirmButton.setAlignmentX(Component.CENTER_ALIGNMENT);
-        confirmButton.addActionListener(e -> processCPFEntry(cpfField));
-
-        backgroundPanel.add(Box.createVerticalStrut(10));
-        backgroundPanel.add(instructionLabel);
-        backgroundPanel.add(Box.createVerticalStrut(30));
-        backgroundPanel.add(cpfLabel);
-        backgroundPanel.add(Box.createVerticalStrut(15));
-        backgroundPanel.add(cpfField);
-        backgroundPanel.add(Box.createVerticalStrut(15));
-        backgroundPanel.add(confirmButton);
+        addComponentsToBackgroundPanel(backgroundPanel, instructionLabel, cpfLabel, cpfField, confirmButton);
 
         this.add(backgroundPanel, BorderLayout.CENTER);
     }
 
-    private void processCPFEntry(JTextField cpfField) {
+    private JPanel createBackgroundPanel() {
+        JPanel panel = new JPanel();
+        panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
+        panel.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
+        return panel;
+    }
+
+    private JLabel createInstructionLabel() {
+        JLabel label = new JLabel("Para votar, digite o CPF (números) e confirme:");
+        label.setAlignmentX(Component.CENTER_ALIGNMENT);
+        return label;
+    }
+
+    private JLabel createCpfLabel() {
+        JLabel label = new JLabel("CPF:");
+        label.setAlignmentX(Component.CENTER_ALIGNMENT);
+        return label;
+    }
+
+    private JTextField createCpfField() {
+        JTextField field = new JTextField();
+        field.setMaximumSize(new Dimension(200, 25));
+        field.setAlignmentX(Component.CENTER_ALIGNMENT);
+        return field;
+    }
+
+    private JButton createConfirmButton(JTextField cpfField) {
+        JButton button = new JButton("Confirmar");
+        button.setAlignmentX(Component.CENTER_ALIGNMENT);
+        button.addActionListener(e -> processCPF(cpfField));
+        return button;
+    }
+
+    private void addComponentsToBackgroundPanel(JPanel panel, JLabel instructionLabel, JLabel cpfLabel, JTextField cpfField, JButton confirmButton) {
+        panel.add(Box.createVerticalStrut(10));
+        panel.add(instructionLabel);
+        panel.add(Box.createVerticalStrut(30));
+        panel.add(cpfLabel);
+        panel.add(Box.createVerticalStrut(15));
+        panel.add(cpfField);
+        panel.add(Box.createVerticalStrut(15));
+        panel.add(confirmButton);
+    }
+
+    private void processCPF(JTextField cpfField) {
         String cpf = cpfField.getText();
 
         if (cpf.isEmpty() || !cpf.matches("\\d{11}")) {

@@ -1,4 +1,6 @@
-package clientServer;
+package server;
+
+import lombok.Getter;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -6,16 +8,13 @@ import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.Socket;
 
-public class ClientSocket {
+@Getter
+class ClientSocket {
     private final Socket socket;
 
-    public ClientSocket(Socket socket) throws IOException {
+    public ClientSocket(Socket socket) {
         this.socket = socket;
         System.out.println("Cliente conectado: " + socket.getRemoteSocketAddress());
-    }
-
-    public Socket getSocket() {
-        return socket;
     }
 
     public void close() {

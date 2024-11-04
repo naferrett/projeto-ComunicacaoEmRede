@@ -45,7 +45,7 @@ public class ServerMainWindow extends BaseWindow {
 
     @Override
     public void exitInterface() {
-        if(server.getServerRunning()) {
+        if(server.isServerRunning()) {
             server.closeServer();
         }
         super.exitInterface();
