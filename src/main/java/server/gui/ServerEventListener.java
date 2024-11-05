@@ -22,6 +22,7 @@ public class ServerEventListener implements ActionListener {
             mainWindow.setStatusMessage("Opção 'Nova Votação' selecionada!");
             showNewPollWindow();
         }
+
         if (event.getSource() == menuHandler.getClosePollItem()) {
             mainWindow.setStatusMessage("Opção 'Encerrar Votação' selecionada!");
             mainWindow.exitInterface();

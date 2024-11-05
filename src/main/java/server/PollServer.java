@@ -23,9 +23,11 @@ public class PollServer {
     @Setter
     @Getter
     private Poll pollPackage;
-    private final Map<String, String> votes = new HashMap<>();
+    @Getter
+    private final Map<String, String> votes = new HashMap<>(); //{(cpf, voto), (cpf, voto)}
     @Getter
     private boolean serverRunning;
+
 
     public void startServer() {
         try {

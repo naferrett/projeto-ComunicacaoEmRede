@@ -25,6 +25,8 @@ public class ServerMainWindow extends BaseWindow {
         initBackGround();
     }
 
+    // resultados
+    // cpf de quem ta votando
     public void initBackGround() {
         JPanel backgroundPanel = createBackgroundPanel();
         //criar os outros métodos para adicionar no background e adicionar aqui..
