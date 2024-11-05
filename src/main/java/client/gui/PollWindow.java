@@ -50,10 +50,7 @@ public class PollWindow extends JDialog {
     }
 
     private JScrollPane createScrollPane(JPanel optionsPanel) {
-        JScrollPane scrollPane = new JScrollPane(optionsPanel);
-        scrollPane.setPreferredSize(new Dimension(250, 150));
-        scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
-        return scrollPane;
+        return new JScrollPane(optionsPanel, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
     }
 
     private JButton createConfirmButton() {

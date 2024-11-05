@@ -4,7 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="af809e2b-38fa-4de0-ae51-fc75a94a1a9a" name="Changes" comment="more refactoring" />
+    <list default="true" id="af809e2b-38fa-4de0-ae51-fc75a94a1a9a" name="Changes" comment="votingServer renamed to PollServer">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/relatorioFinal.txt" beforeDir="false" afterPath="$PROJECT_DIR$/relatorioFinal.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/client/gui/PollWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client/gui/PollWindow.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/server/gui/ServerMainWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/server/gui/ServerMainWindow.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -31,29 +36,30 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.ChatClient.executor&quot;: &quot;Run&quot;,
-    &quot;Application.ChatServer.executor&quot;: &quot;Run&quot;,
-    &quot;Application.MainTeste.executor&quot;: &quot;Run&quot;,
-    &quot;Application.VotingClient.executor&quot;: &quot;Run&quot;,
-    &quot;Application.VotingServer.executor&quot;: &quot;Run&quot;,
-    &quot;Application.client.gui.MainTeste.executor&quot;: &quot;Run&quot;,
-    &quot;Application.client.guiApp.MainTeste.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/nathf/OneDrive/Documentos/unicamp/matérias/POO II/Ex-Fixacao/Ex3-Fixacao-Individual&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.ChatClient.executor": "Run",
+    "Application.ChatServer.executor": "Run",
+    "Application.MainTeste.executor": "Run",
+    "Application.PollServer.executor": "Run",
+    "Application.VotingClient.executor": "Run",
+    "Application.VotingServer.executor": "Run",
+    "Application.client.gui.MainTeste.executor": "Run",
+    "Application.client.guiApp.MainTeste.executor": "Run",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "main",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/nathf/OneDrive/Documentos/unicamp/matérias/POO II/Ex-Fixacao/Ex3-Fixacao-Individual",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\nathf\OneDrive\Documentos\unicamp\matérias\POO II\Projeto-II-ComunicacaoEmRede\src\main\resources" />
@@ -86,8 +92,8 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="VotingClient" type="Application" factoryName="Application" singleton="false" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="client.VotingClient" />
+    <configuration name="PollServer" type="Application" factoryName="Application" singleton="false" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="server.PollServer" />
       <module name="Projeto-II-ComunicacaoEmRede" />
       <extension name="coverage">
         <pattern>
@@ -99,8 +105,8 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="VotingServer" type="Application" factoryName="Application" singleton="false" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="server.VotingServer" />
+    <configuration name="VotingClient" type="Application" factoryName="Application" singleton="false" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="client.VotingClient" />
       <module name="Projeto-II-ComunicacaoEmRede" />
       <extension name="coverage">
         <pattern>
@@ -126,7 +132,7 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="Application.VotingServer" />
+      <item itemvalue="Application.PollServer" />
       <item itemvalue="Application.ChatServer" />
       <item itemvalue="Application.client.gui.MainTeste" />
       <item itemvalue="Application.MainTeste" />
@@ -134,8 +140,8 @@
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.PollServer" />
         <item itemvalue="Application.VotingClient" />
-        <item itemvalue="Application.VotingServer" />
         <item itemvalue="Application.client.gui.MainTeste" />
         <item itemvalue="Application.MainTeste" />
         <item itemvalue="Application.ChatServer" />
@@ -170,6 +176,9 @@
       <workItem from="1730642821210" duration="8670000" />
       <workItem from="1730671138267" duration="2323000" />
       <workItem from="1730730660655" duration="2369000" />
+      <workItem from="1730745247609" duration="825000" />
+      <workItem from="1730746086499" duration="194000" />
+      <workItem from="1730810006883" duration="1923000" />
     </task>
     <task id="LOCAL-00001" summary="first version - gui">
       <option name="closed" value="true" />
@@ -283,7 +292,15 @@
       <option name="project" value="LOCAL" />
       <updated>1730733020496</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="votingServer renamed to PollServer">
+      <option name="closed" value="true" />
+      <created>1730745864637</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1730745864637</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -302,6 +319,7 @@
     <MESSAGE value="new window to add a poll" />
     <MESSAGE value="small refactoring" />
     <MESSAGE value="more refactoring" />
-    <option name="LAST_COMMIT_MESSAGE" value="more refactoring" />
+    <MESSAGE value="votingServer renamed to PollServer" />
+    <option name="LAST_COMMIT_MESSAGE" value="votingServer renamed to PollServer" />
   </component>
 </project>
