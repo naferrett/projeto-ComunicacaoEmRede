@@ -9,7 +9,7 @@ import java.io.IOException;
 public class FinalReport {
 
     // metodo pra calcular contagem de votos pra cada opção
-    // método pra
+    // método pra mostrar todos os votantes
     public void generateReport(Poll poll) {
         try (BufferedWriter bf = new BufferedWriter(new FileWriter("relatorioFinal.txt"))) {
             bf.write("Relatório Final da Eleição\n");
@@ -19,7 +19,7 @@ public class FinalReport {
 
             bf.write("\nInformações dos votantes:\n");
 
-        } catch (IOException e) {
+        } catch (IOException | NullPointerException e) {
             throw new RuntimeException(e);
         }
     }

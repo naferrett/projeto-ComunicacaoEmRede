@@ -167,7 +167,6 @@ public class NewPollWindow extends JDialog implements ActionListener {
         add(buttonPanel, BorderLayout.SOUTH);
     }
 
-
     private void formatTextArea() {
         textArea.setForeground(Color.black);
         textArea.setBackground(Color.white);

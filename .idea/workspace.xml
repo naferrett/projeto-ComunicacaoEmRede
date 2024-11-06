@@ -4,8 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="af809e2b-38fa-4de0-ae51-fc75a94a1a9a" name="Changes" comment="adding scrollPane in pollPanel">
+    <list default="true" id="af809e2b-38fa-4de0-ae51-fc75a94a1a9a" name="Changes" comment="examples">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/relatorioFinal.txt" beforeDir="false" afterPath="$PROJECT_DIR$/relatorioFinal.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/client/gui/ClientMainWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client/gui/ClientMainWindow.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/server/gui/NewPollWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/server/gui/NewPollWindow.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -65,7 +68,7 @@
       <recent name="C:\Users\nathf\OneDrive\Documentos\unicamp\matérias\POO II\Projeto-II-ComunicacaoEmRede\src\main\resources" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.PollServer">
+  <component name="RunManager" selected="Application.VotingClient">
     <configuration name="ChatServer" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="teste.ChatServer" />
       <module name="Projeto-II-ComunicacaoEmRede" />
@@ -179,7 +182,9 @@
       <workItem from="1730745247609" duration="825000" />
       <workItem from="1730746086499" duration="194000" />
       <workItem from="1730810006883" duration="2140000" />
-      <workItem from="1730826149498" duration="778000" />
+      <workItem from="1730826149498" duration="1913000" />
+      <workItem from="1730828170165" duration="622000" />
+      <workItem from="1730918934305" duration="868000" />
     </task>
     <task id="LOCAL-00001" summary="first version - gui">
       <option name="closed" value="true" />
@@ -309,7 +314,15 @@
       <option name="project" value="LOCAL" />
       <updated>1730812274011</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="examples">
+      <option name="closed" value="true" />
+      <created>1730827962614</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1730827962615</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -330,6 +343,7 @@
     <MESSAGE value="more refactoring" />
     <MESSAGE value="votingServer renamed to PollServer" />
     <MESSAGE value="adding scrollPane in pollPanel" />
-    <option name="LAST_COMMIT_MESSAGE" value="adding scrollPane in pollPanel" />
+    <MESSAGE value="examples" />
+    <option name="LAST_COMMIT_MESSAGE" value="examples" />
   </component>
 </project>
