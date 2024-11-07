@@ -58,6 +58,20 @@ public class PollServer {
         }
     }
 
+    //contagem dos votos vai ocorrer aqui
+    public Map<String,Integer> getVoteCounts(){
+        Map<String, Integer> voteCounts = new HashMap<>();
+
+        for(String vote : votes.values()){//pega as escolhas de cada cpf dos votos
+            if(voteCounts.containsKey(vote)){//verifica se a escolha ja esta no novo map
+                voteCounts.put(vote,voteCounts.get(vote)+1);//incrementa a contagem dos votos na escolha caso ja esteja no map
+            } else{
+                voteCounts.put(vote,1);//inicia a contagem dos votos com 1
+            }
+        }
+        return voteCounts;//retorna o map
+    }
+
     private boolean verifyClientCPF(String cpf) {
         return !votes.containsKey(cpf);
     }
