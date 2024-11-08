@@ -6,12 +6,12 @@ import clientServer.gui.SystemInfo;
 import server.PollServer;
 
 public class ServerEventListener implements ActionListener {
-    private final ServerMainWindow mainWindow;
+    private final ServerMainWindow serverWindow;
     private final ServerMenuHandler menuHandler;
     private final PollServer server;
 
     ServerEventListener(ServerMainWindow mainWindow, ServerMenuHandler menuHandler, PollServer server) {
-        this.mainWindow = mainWindow;
+        this.serverWindow = mainWindow;
         this.menuHandler = menuHandler;
         this.server = server;
     }
@@ -19,18 +19,18 @@ public class ServerEventListener implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent event) {
         if (event.getSource() == menuHandler.getNewPollItem()) {
-            mainWindow.setStatusMessage("Opção 'Nova Votação' selecionada!");
+            serverWindow.setStatusMessage("Opção 'Nova Votação' selecionada!");
             showNewPollWindow();
         }
 
         if (event.getSource() == menuHandler.getClosePollItem()) {
-            mainWindow.setStatusMessage("Opção 'Encerrar Votação' selecionada!");
-            mainWindow.exitInterface();
+            serverWindow.setStatusMessage("Opção 'Encerrar Votação' selecionada!");
+            serverWindow.exitInterface();
         }
     }
 
     private void showNewPollWindow() {
-        (new NewPollWindow(mainWindow, "Nova Votação - " + SystemInfo.getVersionName(), SystemInfo.getInstructionsToAddPool(), mainWindow, server)).setVisible(true);
+        (new NewPollWindow(serverWindow, "Nova Votação - " + SystemInfo.getVersionName(), SystemInfo.getInstructionsToAddPool(), serverWindow, serverWindow,server)).setVisible(true);
     }
 
 }

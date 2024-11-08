@@ -31,7 +31,7 @@ public class PollServer {
 
     public void startServer() {
         try {
-            serverSocket = new ServerSocket(PORT, 50, InetAddress.getByName("0.0.0.0"));
+            serverSocket = new ServerSocket(PORT, 10, InetAddress.getByName("0.0.0.0"));
             System.out.println("Servidor de Votação iniciado na porta " + PORT);
             serverRunning = true;
 
@@ -69,6 +69,7 @@ public class PollServer {
                 voteCounts.put(vote,1);//inicia a contagem dos votos com 1
             }
         }
+
         return voteCounts;//retorna o map
     }
 

@@ -31,10 +31,12 @@ public class NewPollWindow extends JDialog implements ActionListener {
     private final JTextArea textArea;
     private final PollServer server;
     private final BaseWindow mainWindow;
+    private ServerMainWindow serverWindow;
 
-    NewPollWindow(JFrame window, String title, String text, BaseWindow mainWindow, PollServer server) throws HeadlessException {
+    NewPollWindow(JFrame window, String title, String text, BaseWindow mainWindow, ServerMainWindow serverWindow, PollServer server) throws HeadlessException {
         super(window, title);
 
+        this.serverWindow = serverWindow;
         this.mainWindow = mainWindow;
         this.server = server;
 
@@ -203,6 +205,12 @@ public class NewPollWindow extends JDialog implements ActionListener {
         if (event.getSource() == sendPollButton) {
             Poll newPoll = new Poll(pollTitle.getText(), pollOptions);
             this.server.setPollPackage(newPoll);
+
+            JPanel backgroundPanel = serverWindow.getBackgroundPanel(); // Certifique-se de ter um método para obter este painel
+            serverWindow.addVoteCountLabels(backgroundPanel); // Atualiza os contadores de votos no painel
+
+            backgroundPanel.revalidate();
+            backgroundPanel.repaint();
 
             setVisible(false);
         }

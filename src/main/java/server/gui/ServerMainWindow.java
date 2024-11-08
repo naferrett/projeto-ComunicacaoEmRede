@@ -1,6 +1,7 @@
 package server.gui;
 
 import clientServer.gui.BaseWindow;
+import lombok.Getter;
 import server.PollServer;
 
 import javax.swing.*;
@@ -10,6 +11,9 @@ import java.util.Map;
 
 public class ServerMainWindow extends BaseWindow {
     private final PollServer server;
+    @Getter
+    private JPanel backgroundPanel;
+    private final Map<String, JLabel> voteCountsLabels = new HashMap<>();
 
     public ServerMainWindow(PollServer votingServer) {
         super();
@@ -27,30 +31,34 @@ public class ServerMainWindow extends BaseWindow {
         initBackGround();
     }
 
-    private final Map<String, JLabel> voteCountsLabels = new HashMap<>();
-
     // resultados
     public void initBackGround() {
-        JPanel backgroundPanel = createBackgroundPanel();
-        //criar os outros métodos para adicionar no background e adicionar aqui..
-        // ex:
-        //JLabel exemplo = createLabelExemplo();
-        //addComponentsToBackgroundPanel(backgroundPanel, exemplo);
+        backgroundPanel = createBackgroundPanel();
         addVoteCountLabels(backgroundPanel);
-        //o scrollPane é aquela barrinha de rolagem na lateral, é um container externo que envolve o JPanel, por isso ele fica por último
+
         JScrollPane scrollPane = createScrollPane(backgroundPanel);
         this.add(scrollPane, BorderLayout.CENTER);
+
+        backgroundPanel.revalidate();
+        backgroundPanel.repaint();
+
         startVoteCountUpdater();
     }
 
-    private void addVoteCountLabels(JPanel panel){
-        Map<String, Integer> voteCounts = server.getVoteCounts(); //Pega as opções de voto la da função criada no PollServer
+    public void addVoteCountLabels(JPanel panel){
+        panel.removeAll();
 
-        for(String option : voteCounts.keySet()){
-            JLabel voteLabel = new JLabel(option + ": 0 votos");
-            voteLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
-            voteCountsLabels.put(option, voteLabel); // associa a opção com seu respectivo label
-            panel.add(voteLabel);
+        if (server.getPollPackage() == null) { // Verifica se há votos disponíveis
+            JLabel noVotesLabel = new JLabel("Nenhuma votação registrada ainda.");
+            noVotesLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
+            panel.add(noVotesLabel);
+        } else {
+            for (String option : server.getPollPackage().getOptions()) {
+                JLabel voteLabel = new JLabel(option + ": 0 votos");
+                voteLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
+                voteCountsLabels.put(option, voteLabel); // Associa a opção com seu respectivo JLabel
+                panel.add(voteLabel);
+            }
         }
     }
 
@@ -62,14 +70,17 @@ public class ServerMainWindow extends BaseWindow {
 
     //atualização dos votos vai ocorrer aqui
     private void updateVoteCounts(){
-        Map<String,Integer> voteCounts = server.getVoteCounts();
-        for(Map.Entry<String, Integer> entry : voteCounts.entrySet()){
+        Map<String, Integer> voteCounts = server.getVoteCounts();
+
+        for (Map.Entry<String, Integer> entry : voteCounts.entrySet()) {
             String option = entry.getKey();
             int count = entry.getValue();
 
-            JLabel voteLabel = voteCountsLabels.get(option);//pega o Label da opção
-            if(voteLabel != null){
-                voteLabel.setText(option + ": " + count + " votos");//atualiza o Label com os votos atuais
+            JLabel voteLabel = voteCountsLabels.get(option);
+            if (voteLabel != null) {
+                voteLabel.setText(option + ": " + count + " votos");
+            } else {
+                System.out.println("Nenhum label encontrado para a opção: " + option); // Debug
             }
         }
     }
