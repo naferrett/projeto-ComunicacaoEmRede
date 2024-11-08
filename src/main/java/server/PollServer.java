@@ -114,7 +114,9 @@ public class PollServer {
         try {
             serverRunning = false;
             serverSocket.close();
-            (new FinalReport()).generateReport(pollPackage);
+            FinalReport report = new FinalReport();
+            report.setPollServer(this); //passa a instancia PollServer
+            report.generateReport(pollPackage);
         } catch (IOException e) {
             System.out.println("Erro ao fechar o servidor: " + e.getMessage());
         }
