@@ -1,12 +1,7 @@
 /* Esta classe implementa a interface WindowListener para gerenciar eventos relacionados
- * à janela principal da aplicação. Ela escuta eventos de ciclo de vida da janela, como
- * abertura, fechamento, minimização e ativação. Quando a janela está prestes a ser fechada,
- * exibe uma mensagem ao usuário e executa o método de encerramento da interface principal.*/
+ * à janela principal de cada aplicação.*/
 
 package clientServer.gui;
-
-import clientServer.gui.BaseWindow;
-import clientServer.gui.ClosableWindow;
 
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;

@@ -1,3 +1,9 @@
+/*
+ * A classe gerencia o servidor de votação, permitindo que múltiplos clientes se conectem
+ * para votar, validando seus CPFs e registrando os votos. No fechamento do servidor, ela gera um
+ * relatório final com os resultados da eleição.
+ */
+
 package server;
 
 import clientServer.Poll;
@@ -24,15 +30,13 @@ public class PollServer {
     @Getter
     private Poll pollPackage;
     @Getter
-    private final Map<String, String> votes = new HashMap<>(); //{(cpf, voto), (cpf, voto)}
+    private final Map<String, String> votes = new HashMap<>();
     @Getter
     private boolean serverRunning;
-
 
     public void startServer() {
         try {
             serverSocket = new ServerSocket(PORT, 10, InetAddress.getByName("0.0.0.0"));
-            System.out.println("Servidor de Votação iniciado na porta " + PORT);
             serverRunning = true;
 
             while (serverRunning) {
@@ -51,26 +55,11 @@ public class PollServer {
 
     private void clientConnection() throws IOException {
         while (true) {
-            ClientSocket clientSocket = new ClientSocket(serverSocket.accept());  // Aguarda conexões
+            ClientSocket clientSocket = new ClientSocket(serverSocket.accept());
             clientSocketList.add(clientSocket);
 
             new Thread(() -> clientVoteLoop(clientSocket)).start();
         }
-    }
-
-    //contagem dos votos vai ocorrer aqui
-    public Map<String,Integer> getVoteCounts(){
-        Map<String, Integer> voteCounts = new HashMap<>();
-
-        for(String vote : votes.values()){//pega as escolhas de cada cpf dos votos
-            if(voteCounts.containsKey(vote)){//verifica se a escolha ja esta no novo map
-                voteCounts.put(vote,voteCounts.get(vote)+1);//incrementa a contagem dos votos na escolha caso ja esteja no map
-            } else{
-                voteCounts.put(vote,1);//inicia a contagem dos votos com 1
-            }
-        }
-
-        return voteCounts;//retorna o map
     }
 
     private boolean verifyClientCPF(String cpf) {
@@ -79,8 +68,8 @@ public class PollServer {
 
     private void clientVoteLoop(ClientSocket clientSocket) {
         try {
-            ObjectOutputStream outputStream = new ObjectOutputStream(clientSocket.getSocket().getOutputStream());
-            ObjectInputStream inputStream = new ObjectInputStream(clientSocket.getSocket().getInputStream());
+            ObjectOutputStream outputStream = new ObjectOutputStream(clientSocket.socket().getOutputStream());
+            ObjectInputStream inputStream = new ObjectInputStream(clientSocket.socket().getInputStream());
 
             while (serverRunning) {
                 String message = (String) inputStream.readObject();
@@ -100,7 +89,6 @@ public class PollServer {
 
                     String vote = (String) inputStream.readObject();
                     votes.put(message, vote);
-                    System.out.println("Voto registrado. CPF: " + message + " Votou: " + vote);
                 }
             }
         } catch (Exception e) {
@@ -110,29 +98,29 @@ public class PollServer {
         }
     }
 
+    public Map<String,Integer> getVoteCounts(){
+        Map<String, Integer> voteCounts = new HashMap<>();
+
+        for(String vote : votes.values()){ // Gets every voters' choice
+            if(voteCounts.containsKey(vote)){ // Verifies if the choice is already in the HashMap
+                voteCounts.put(vote,voteCounts.get(vote)+1); // Adds one more vote for the choice
+            } else{
+                voteCounts.put(vote,1); // Inits counting for an option
+            }
+        }
+
+        return voteCounts;
+    }
+
     public void closeServer() {
         try {
             serverRunning = false;
             serverSocket.close();
             FinalReport report = new FinalReport();
-            report.setPollServer(this); //passa a instancia PollServer
+            report.setPollServer(this);
             report.generateReport(pollPackage);
         } catch (IOException e) {
             System.out.println("Erro ao fechar o servidor: " + e.getMessage());
-        }
-    }
-
-    //public boolean getServerRunning() {
-//        return serverRunning;
-//    }
-
-    public static void main(String[] args) {
-        try {
-            (new ServerMainWindow(new PollServer())).initInterface();
-        } catch (HeadlessException e) {
-            System.out.println("Exceção do tipo HeadLessException capturada: " + e.getMessage());
-        } catch (Exception e) {
-            System.out.println("Exceção genérica capturada: " + e.getMessage());
         }
     }
 }

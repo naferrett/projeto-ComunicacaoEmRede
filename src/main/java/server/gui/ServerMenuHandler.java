@@ -1,3 +1,7 @@
+/*
+ * A classe ServerMenuHandler é responsável por criar e adicionar o menus de ajuda à barra de menus da janela principal do servidor.
+ */
+
 package server.gui;
 
 import lombok.Getter;

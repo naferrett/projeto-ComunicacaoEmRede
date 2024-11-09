@@ -1,3 +1,10 @@
+/*
+ * A classe ServerMainWindow representa a interface principal do servidor de votações.
+ * Ela gerencia a exibição da lista de opções de votação e a quantidade de votos que aquela opção recebeu em tempo real.
+ * Ela também lida com a interação do usuário, como a adição de novas votações e o encerramento do servidor.
+ */
+
+
 package server.gui;
 
 import clientServer.gui.BaseWindow;
@@ -31,7 +38,6 @@ public class ServerMainWindow extends BaseWindow {
         initBackGround();
     }
 
-    // resultados
     public void initBackGround() {
         backgroundPanel = createBackgroundPanel();
         addVoteCountLabels(backgroundPanel);
@@ -39,16 +45,13 @@ public class ServerMainWindow extends BaseWindow {
         JScrollPane scrollPane = createScrollPane(backgroundPanel);
         this.add(scrollPane, BorderLayout.CENTER);
 
-        backgroundPanel.revalidate();
-        backgroundPanel.repaint();
-
         startVoteCountUpdater();
     }
 
     public void addVoteCountLabels(JPanel panel){
         panel.removeAll();
 
-        if (server.getPollPackage() == null) { // Verifica se há votos disponíveis
+        if (server.getPollPackage() == null) {
             JLabel noVotesLabel = new JLabel("Nenhuma votação registrada ainda.");
             noVotesLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
             panel.add(noVotesLabel);
@@ -56,19 +59,17 @@ public class ServerMainWindow extends BaseWindow {
             for (String option : server.getPollPackage().options()) {
                 JLabel voteLabel = new JLabel(option + ": 0 votos");
                 voteLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
-                voteCountsLabels.put(option, voteLabel); // Associa a opção com seu respectivo JLabel
+                voteCountsLabels.put(option, voteLabel);
                 panel.add(voteLabel);
             }
         }
     }
 
-    //vai ficar chamando a função update a cada 1000 milissegundos
     private void startVoteCountUpdater(){
         Timer timer = new Timer(1000, e->updateVoteCounts());
         timer.start();
     }
 
-    //atualização dos votos vai ocorrer aqui
     private void updateVoteCounts(){
         Map<String, Integer> voteCounts = server.getVoteCounts();
 

@@ -40,7 +40,8 @@ public class ClientMainWindow extends BaseWindow {
 
         addComponentsToBackgroundPanel(backgroundPanel, instructionLabel, cpfLabel, cpfField, confirmButton);
 
-        this.add(backgroundPanel, BorderLayout.CENTER);
+        JScrollPane scrollPane = new JScrollPane(backgroundPanel, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
+        this.add(scrollPane, BorderLayout.CENTER);
     }
 
     private JPanel createBackgroundPanel() {
@@ -85,6 +86,7 @@ public class ClientMainWindow extends BaseWindow {
         panel.add(cpfField);
         panel.add(Box.createVerticalStrut(15));
         panel.add(confirmButton);
+        panel.add(Box.createVerticalStrut(15));
     }
 
     private void processCPF(JTextField cpfField) {

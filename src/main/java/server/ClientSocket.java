@@ -1,21 +1,9 @@
 package server;
 
-import lombok.Getter;
-
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.PrintWriter;
 import java.net.Socket;
 
-@Getter
-class ClientSocket {
-    private final Socket socket;
-
-    public ClientSocket(Socket socket) {
-        this.socket = socket;
-        System.out.println("Cliente conectado: " + socket.getRemoteSocketAddress());
-    }
+record ClientSocket(Socket socket) {
 
     public void close() {
         try {

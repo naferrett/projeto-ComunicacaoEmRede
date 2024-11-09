@@ -1,14 +1,14 @@
 Relatório Final da Eleição
-Título da Votação: aa
+Título da Votação: 1
 
 Resultados:
-Opção: 1 - Votos: 0
+Opção: 1 - Votos: 1
 Opção: 2 - Votos: 1
-Opção: 3 - Votos: 2
 
-Ganhador: 3 com 2 votos
+Empate entre as opções mais votadas: 
+1 empatou com 1 votos.
+2 empatou com 1 votos.
 
 Informações dos votantes:
-CPF: 12345678912 - Votou em: 2
-CPF: 12345678910 - Votou em: 3
-CPF: 12345678911 - Votou em: 3
+CPF: 12345678910 - Votou em: 2
+CPF: 12345678911 - Votou em: 1

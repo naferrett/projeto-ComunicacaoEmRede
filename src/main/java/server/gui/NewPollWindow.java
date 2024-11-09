@@ -1,3 +1,10 @@
+/*
+ * A classe NewPollWindow representa uma janela para a criação de uma nova votação por parte do servidor.
+ * Essa classe permite ao usuário inserir o título da votação e as opções, validando se há duplicatas.
+ * Ao confirmar a votação, a nova enquete é enviada ao servidor e as opções de votação são exibidas na interface do servidor.
+ */
+
+
 package server.gui;
 
 import clientServer.Poll;
@@ -19,47 +26,37 @@ import javax.swing.border.TitledBorder;
 public class NewPollWindow extends JDialog implements ActionListener {
     @Serial
     private static final long serialVersionUID = 1L;
-    private final JPanel pollPanel;
-    private final JPanel inputPanel;
-    private final JPanel buttonPanel;
+    private JPanel pollPanel;
+    private JPanel inputPanel;
+    private JPanel buttonPanel;
     private JButton cancelButton;
     private JButton sendPollButton;
     private JButton confirmPollOptionButton;
     private JTextField pollTitle;
     private JTextField pollOption;
-    private final List<String> pollOptions;
-    private final JTextArea textArea;
+    private final List<String> pollOptions = new ArrayList<>();
+    private JTextArea textArea;
     private final PollServer server;
     private final BaseWindow mainWindow;
-    private ServerMainWindow serverWindow;
+    private final ServerMainWindow serverWindow;
 
-    NewPollWindow(JFrame window, String title, String text, BaseWindow mainWindow, ServerMainWindow serverWindow, PollServer server) throws HeadlessException {
-        super(window, title);
+    NewPollWindow(String title, String text, BaseWindow mainWindow, ServerMainWindow serverWindow, PollServer server) throws HeadlessException {
+        super(serverWindow, title);
+        windowConfig();
 
         this.serverWindow = serverWindow;
         this.mainWindow = mainWindow;
         this.server = server;
 
-        pollOptions = new ArrayList<>();
+        createAddComponents(text);
+    }
 
-        setSize(600, 300);
-        setResizable(false);
-        setLocationRelativeTo(mainWindow);
-        setDefaultCloseOperation(DISPOSE_ON_CLOSE);
-        setModalityType(ModalityType.APPLICATION_MODAL);
-
-        textArea = createTextArea(text);
-        formatTextArea();
-
-        JScrollPane scrollPane = createScrollPane(textArea);
-        createTextPanel(scrollPane);
-
-        inputPanel = createInputPanel();
-
-        pollPanel = createPoolPanel();
-        buttonPanel = createButtonPanel();
-
-        addComponents();
+    public void windowConfig() {
+        this.setSize(600, 300);
+        this.setResizable(false);
+        this.setLocationRelativeTo(mainWindow);
+        this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+        this.setModalityType(ModalityType.APPLICATION_MODAL);
     }
 
     private JPanel createPoolPanel() {
@@ -163,8 +160,17 @@ public class NewPollWindow extends JDialog implements ActionListener {
         return buttonPanel;
     }
 
-    private void addComponents() {
+    private void createAddComponents(String text) {
+        textArea = createTextArea(text);
+        createTextPanel(createScrollPane(textArea));
+
+        inputPanel = createInputPanel();
+        pollPanel = createPoolPanel();
+        buttonPanel = createButtonPanel();
+
+        formatTextArea();
         setLayout(new BorderLayout());
+
         add(pollPanel, BorderLayout.CENTER);
         add(buttonPanel, BorderLayout.SOUTH);
     }
@@ -180,7 +186,7 @@ public class NewPollWindow extends JDialog implements ActionListener {
         textArea.setMargin(new Insets(10, 10, 10, 10));
     }
 
-    private boolean duplicateOptions(List<String> options) {
+    private boolean findDuplicateOptions(List<String> options) {
         Set<String> findDuplicate = new HashSet<>();
         for (String option : options) {
             if (!findDuplicate.add(option)) {
@@ -195,7 +201,7 @@ public class NewPollWindow extends JDialog implements ActionListener {
         if (event.getSource() == confirmPollOptionButton) {
             pollOptions.add(pollOption.getText());
 
-            if(duplicateOptions(pollOptions)) {
+            if(findDuplicateOptions(pollOptions)) {
                 JOptionPane.showMessageDialog(mainWindow, "A lista de opções de votação não aceita duplicatas.", "Erro", JOptionPane.ERROR_MESSAGE);
                 pollOptions.remove(pollOption.getText());
             }
@@ -206,8 +212,8 @@ public class NewPollWindow extends JDialog implements ActionListener {
             Poll newPoll = new Poll(pollTitle.getText(), pollOptions);
             this.server.setPollPackage(newPoll);
 
-            JPanel backgroundPanel = serverWindow.getBackgroundPanel(); // Certifique-se de ter um método para obter este painel
-            serverWindow.addVoteCountLabels(backgroundPanel); // Atualiza os contadores de votos no painel
+            JPanel backgroundPanel = serverWindow.getBackgroundPanel();
+            serverWindow.addVoteCountLabels(backgroundPanel);
 
             backgroundPanel.revalidate();
             backgroundPanel.repaint();
