@@ -4,18 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="af809e2b-38fa-4de0-ae51-fc75a94a1a9a" name="Changes" comment="reports adaptation for a possible draw">
-      <change afterPath="$PROJECT_DIR$/src/main/java/client/clientMain.java" afterDir="false" />
+    <list default="true" id="af809e2b-38fa-4de0-ae51-fc75a94a1a9a" name="Changes" comment="client refactoring">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/relatorioFinal.txt" beforeDir="false" afterPath="$PROJECT_DIR$/relatorioFinal.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/client/ClientMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client/ClientMain.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/client/VotingClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client/VotingClient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/client/gui/ClientEventListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client/gui/ClientEventListener.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/client/gui/ClientMainWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client/gui/ClientMainWindow.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/client/gui/ClientMenuHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client/gui/ClientMenuHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/client/gui/ImageDisplayPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client/gui/ImageDisplayPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/client/gui/PollWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client/gui/PollWindow.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/server/PollServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/server/PollServer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/clientServer/Poll.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/clientServer/Poll.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/clientServer/gui/BaseWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/clientServer/gui/BaseWindow.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/clientServer/gui/ClosableWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/clientServer/gui/ClosableWindow.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/server/gui/ServerMainWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/server/gui/ServerMainWindow.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/server/reports/FinalReport.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/server/reports/FinalReport.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -89,7 +87,20 @@
       <recent name="C:\Users\nathf\OneDrive\Documentos\unicamp\matérias\POO II\Projeto-II-ComunicacaoEmRede\src\main\resources" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.clientMain">
+  <component name="RunManager" selected="Application.ClientMain">
+    <configuration name="ClientMain" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="client.ClientMain" />
+      <module name="Projeto-II-ComunicacaoEmRede" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="client.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="MainTeste" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="guiApp.MainTeste" />
       <module name="Projeto-II-ComunicacaoEmRede" />
@@ -129,19 +140,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="clientMain" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="client.clientMain" />
-      <module name="Projeto-II-ComunicacaoEmRede" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="client.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="client.gui.MainTeste" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="client.gui.MainTeste" />
       <module name="Projeto-II-ComunicacaoEmRede" />
@@ -156,7 +154,7 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="Application.clientMain" />
+      <item itemvalue="Application.ClientMain" />
       <item itemvalue="Application.PollServer" />
       <item itemvalue="Application.client.gui.MainTeste" />
       <item itemvalue="Application.MainTeste" />
@@ -164,7 +162,7 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.clientMain" />
+        <item itemvalue="Application.ClientMain" />
         <item itemvalue="Application.PollServer" />
         <item itemvalue="Application.VotingClient" />
         <item itemvalue="Application.client.gui.MainTeste" />
@@ -206,7 +204,7 @@
       <workItem from="1730826149498" duration="1913000" />
       <workItem from="1730828170165" duration="622000" />
       <workItem from="1730918934305" duration="868000" />
-      <workItem from="1731176686407" duration="2373000" />
+      <workItem from="1731176686407" duration="3426000" />
     </task>
     <task id="LOCAL-00001" summary="first version - gui">
       <option name="closed" value="true" />
@@ -352,7 +350,15 @@
       <option name="project" value="LOCAL" />
       <updated>1731114924912</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="client refactoring">
+      <option name="closed" value="true" />
+      <created>1731179336854</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1731179336854</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -375,6 +381,7 @@
     <MESSAGE value="adding scrollPane in pollPanel" />
     <MESSAGE value="examples" />
     <MESSAGE value="reports adaptation for a possible draw" />
-    <option name="LAST_COMMIT_MESSAGE" value="reports adaptation for a possible draw" />
+    <MESSAGE value="client refactoring" />
+    <option name="LAST_COMMIT_MESSAGE" value="client refactoring" />
   </component>
 </project>

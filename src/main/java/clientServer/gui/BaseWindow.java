@@ -1,8 +1,9 @@
-package clientServer.gui;
+/*
+* Classe base para criação de janelas na interface gráfica, fornecendo configuração de janela, manipulação de ícones, painel de status,
+* e métodos de inicialização e gerenciamento de eventos de menu.
+* */
 
-import client.gui.ClientMenuHandler;
-import client.gui.ClientEventListener;
-import lombok.extern.log4j.Log4j2;
+package clientServer.gui;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
@@ -22,7 +23,7 @@ public class BaseWindow extends JFrame implements ClosableWindow {
     }
 
     public void windowConfig() {
-        this.setSize((int) (Toolkit.getDefaultToolkit().getScreenSize().getWidth() * 0.3), (int) (Toolkit.getDefaultToolkit().getScreenSize().getHeight() * 0.35));
+        this.setSize((int) (Toolkit.getDefaultToolkit().getScreenSize().getWidth() * 0.3), (int) (Toolkit.getDefaultToolkit().getScreenSize().getHeight() * 0.3));
         this.setLocationRelativeTo(null);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setIcon();

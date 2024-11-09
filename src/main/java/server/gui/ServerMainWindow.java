@@ -53,7 +53,7 @@ public class ServerMainWindow extends BaseWindow {
             noVotesLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
             panel.add(noVotesLabel);
         } else {
-            for (String option : server.getPollPackage().getOptions()) {
+            for (String option : server.getPollPackage().options()) {
                 JLabel voteLabel = new JLabel(option + ": 0 votos");
                 voteLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
                 voteCountsLabels.put(option, voteLabel); // Associa a opção com seu respectivo JLabel

@@ -115,7 +115,7 @@ public class ClientMainWindow extends BaseWindow {
     }
 
     private void openPollWindow(Poll votingPackage) {
-        PollWindow pollWindow = new PollWindow(this, votingPackage.getTitle(), votingPackage.getOptions(), client);
+        PollWindow pollWindow = new PollWindow(this, votingPackage.title(), votingPackage.options(), client);
         pollWindow.setVisible(true);
     }
 

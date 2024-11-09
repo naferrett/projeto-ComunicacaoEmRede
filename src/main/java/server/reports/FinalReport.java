@@ -26,12 +26,12 @@ public class FinalReport {
         try (BufferedWriter bf = new BufferedWriter(new FileWriter("relatorioFinal.txt"))) {
             bf.write("Relatório Final da Eleição\n");
 
-            bf.write("Título da Votação: " + poll.getTitle() + "\n\n");
+            bf.write("Título da Votação: " + poll.title() + "\n\n");
 
             bf.write("Resultados:\n");
             Map<String, Integer> voteCounts = pollServer.getVoteCounts();
 
-            List<String> pollOptions = poll.getOptions(); // Supondo que `poll.getOptions()` retorna todas as opções disponíveis na votação
+            List<String> pollOptions = poll.options(); // Supondo que `poll.getOptions()` retorna todas as opções disponíveis na votação
             for (String option : pollOptions) {
                 int votes = voteCounts.getOrDefault(option, 0);
                 bf.write("Opção: " + option + " - Votos: " + votes + "\n");

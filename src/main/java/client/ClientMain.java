@@ -1,3 +1,7 @@
+/*
+* Classe principal que inicializa a interface gráfica do cliente e o cliente para o sistema de votação,
+* */
+
 package client;
 
 import client.gui.ClientMainWindow;

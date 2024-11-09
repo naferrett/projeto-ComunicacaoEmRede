@@ -1,3 +1,7 @@
+/*
+* Classe responsável por gerenciar a comunicação do cliente com o servidor de votação.
+* */
+
 package client;
 
 import java.io.IOException;
