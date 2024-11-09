@@ -17,7 +17,7 @@ import java.util.*;
 import java.util.List;
 
 public class PollServer {
-    public static final int PORT = 4000;
+    public final int PORT = 4000;
     private ServerSocket serverSocket;
     private final List<ClientSocket> clientSocketList = new LinkedList<>();
     @Setter

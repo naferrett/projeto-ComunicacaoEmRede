@@ -1,11 +1,14 @@
+/*
+* A classe PollWindow cria uma janela de diálogo para exibir a votação ao usuário após a confirmação e envio do CPF ao servidor, exibindo opções
+* e permitindo a seleção de uma opção.
+* */
+
 package client.gui;
 
 import client.VotingClient;
-
 import javax.swing.*;
 import java.awt.*;
 import java.util.Collections;
-import java.util.Enumeration;
 import java.util.List;
 
 public class PollWindow extends JDialog {
@@ -14,19 +17,25 @@ public class PollWindow extends JDialog {
 
     public PollWindow(JFrame parent, String title, List<String> options, VotingClient votingClient) {
         super(parent, title, true);
+        windowConfig(parent);
+        createAddComponents(title, options);
 
         this.votingClient = votingClient;
+    }
 
-        this.setLayout(new BoxLayout(getContentPane(), BoxLayout.Y_AXIS));
-        this.setSize(300, 300);
-        this.setLocationRelativeTo(parent);
-
+    private void createAddComponents(String title, List<String> options) {
         JLabel titleLabel = createTitleLabel(title);
         JPanel optionsPanel = createOptionsPanel(options);
         JScrollPane scrollPane = createScrollPane(optionsPanel);
         JButton confirmButton = createConfirmButton();
 
         addComponents(titleLabel, scrollPane, confirmButton);
+    }
+
+    private void windowConfig(JFrame parent) {
+        this.setLayout(new BoxLayout(getContentPane(), BoxLayout.Y_AXIS));
+        this.setSize(300, 300);
+        this.setLocationRelativeTo(parent);
     }
 
     private JLabel createTitleLabel(String title) {

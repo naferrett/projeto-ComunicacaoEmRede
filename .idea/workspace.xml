@@ -4,10 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="af809e2b-38fa-4de0-ae51-fc75a94a1a9a" name="Changes" comment="examples">
+    <list default="true" id="af809e2b-38fa-4de0-ae51-fc75a94a1a9a" name="Changes" comment="reports adaptation for a possible draw">
+      <change afterPath="$PROJECT_DIR$/src/main/java/client/clientMain.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/relatorioFinal.txt" beforeDir="false" afterPath="$PROJECT_DIR$/relatorioFinal.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/server/reports/FinalReport.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/server/reports/FinalReport.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/client/VotingClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client/VotingClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/client/gui/ClientEventListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client/gui/ClientEventListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/client/gui/ClientMainWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client/gui/ClientMainWindow.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/client/gui/ClientMenuHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client/gui/ClientMenuHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/client/gui/ImageDisplayPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client/gui/ImageDisplayPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/client/gui/PollWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client/gui/PollWindow.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/server/PollServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/server/PollServer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/server/gui/ServerMainWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/server/gui/ServerMainWindow.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,50 +58,38 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.ChatClient.executor&quot;: &quot;Run&quot;,
-    &quot;Application.ChatServer.executor&quot;: &quot;Run&quot;,
-    &quot;Application.MainTeste.executor&quot;: &quot;Run&quot;,
-    &quot;Application.PollServer.executor&quot;: &quot;Run&quot;,
-    &quot;Application.VotingClient.executor&quot;: &quot;Run&quot;,
-    &quot;Application.VotingServer.executor&quot;: &quot;Run&quot;,
-    &quot;Application.client.gui.MainTeste.executor&quot;: &quot;Run&quot;,
-    &quot;Application.client.guiApp.MainTeste.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/nathf/OneDrive/Documentos/unicamp/matérias/POO II/Projeto-II-ComunicacaoEmRede&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.ChatClient.executor": "Run",
+    "Application.ChatServer.executor": "Run",
+    "Application.MainTeste.executor": "Run",
+    "Application.PollServer.executor": "Run",
+    "Application.VotingClient.executor": "Run",
+    "Application.VotingServer.executor": "Run",
+    "Application.client.gui.MainTeste.executor": "Run",
+    "Application.client.guiApp.MainTeste.executor": "Run",
+    "Application.clientMain.executor": "Run",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "main",
+    "ignore.virus.scanning.warn.message": "true",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/nathf/OneDrive/Documentos/unicamp/matérias/POO II/Projeto-II-ComunicacaoEmRede",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\nathf\OneDrive\Documentos\unicamp\matérias\POO II\Projeto-II-ComunicacaoEmRede\src\main\resources" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.VotingClient">
-    <configuration name="ChatServer" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="teste.ChatServer" />
-      <module name="Projeto-II-ComunicacaoEmRede" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="teste.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager" selected="Application.clientMain">
     <configuration name="MainTeste" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="guiApp.MainTeste" />
       <module name="Projeto-II-ComunicacaoEmRede" />
@@ -133,6 +129,19 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="clientMain" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="client.clientMain" />
+      <module name="Projeto-II-ComunicacaoEmRede" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="client.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="client.gui.MainTeste" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="client.gui.MainTeste" />
       <module name="Projeto-II-ComunicacaoEmRede" />
@@ -147,19 +156,19 @@
       </method>
     </configuration>
     <list>
+      <item itemvalue="Application.clientMain" />
       <item itemvalue="Application.PollServer" />
-      <item itemvalue="Application.ChatServer" />
       <item itemvalue="Application.client.gui.MainTeste" />
       <item itemvalue="Application.MainTeste" />
       <item itemvalue="Application.VotingClient" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.VotingClient" />
+        <item itemvalue="Application.clientMain" />
         <item itemvalue="Application.PollServer" />
+        <item itemvalue="Application.VotingClient" />
         <item itemvalue="Application.client.gui.MainTeste" />
         <item itemvalue="Application.MainTeste" />
-        <item itemvalue="Application.ChatServer" />
       </list>
     </recent_temporary>
   </component>
@@ -197,6 +206,7 @@
       <workItem from="1730826149498" duration="1913000" />
       <workItem from="1730828170165" duration="622000" />
       <workItem from="1730918934305" duration="868000" />
+      <workItem from="1731176686407" duration="2373000" />
     </task>
     <task id="LOCAL-00001" summary="first version - gui">
       <option name="closed" value="true" />
@@ -334,7 +344,15 @@
       <option name="project" value="LOCAL" />
       <updated>1730827962615</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="reports adaptation for a possible draw">
+      <option name="closed" value="true" />
+      <created>1731114924912</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1731114924912</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -356,6 +374,7 @@
     <MESSAGE value="votingServer renamed to PollServer" />
     <MESSAGE value="adding scrollPane in pollPanel" />
     <MESSAGE value="examples" />
-    <option name="LAST_COMMIT_MESSAGE" value="examples" />
+    <MESSAGE value="reports adaptation for a possible draw" />
+    <option name="LAST_COMMIT_MESSAGE" value="reports adaptation for a possible draw" />
   </component>
 </project>

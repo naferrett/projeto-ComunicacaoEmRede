@@ -1,13 +1,14 @@
 Relatório Final da Eleição
-Título da Votação: a
+Título da Votação: gerf?
 
 Resultados:
-Opção:  - Votos: 0
-Opção: 1 - Votos: 1
-Opção: 2 - Votos: 0
-Opção: 3 - Votos: 0
+Opção: gerf.. - Votos: 1
+Opção: gerf! - Votos: 1
 
-Ganhador: 1 com 1 votos
+Empate entre as opções mais votadas: 
+gerf! empatou com 1 votos
+gerf.. empatou com 1 votos
 
 Informações dos votantes:
-CPF: 11122233344 - Votou em: 1
+CPF: 49059559800 - Votou em: gerf!
+CPF: 33580494856 - Votou em: gerf..

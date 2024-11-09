@@ -1,15 +1,10 @@
 /*
- * A classe ServerEventListener lida com os eventos de ação disparados pelos menus e itens de interface.
- * Essa classe implementa a interface ActionListener, respondendo a comandos como abrir/fechar arquivos, alterar padrões e cores de fundo,
- * mudar a velocidade de animação e exibir mensagens de ajuda ou sobre a aplicação.
+ * A classe ClientEventListener lida com os eventos de ação disparados pelos menus da interface do cliente.
  */
-
 
 package client.gui;
 
-import clientServer.gui.BaseWindow;
 import clientServer.gui.SystemInfo;
-
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 

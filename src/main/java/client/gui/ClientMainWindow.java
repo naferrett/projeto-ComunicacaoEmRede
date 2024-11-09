@@ -1,3 +1,7 @@
+/*
+* A classe ClientMainWindow gerencia a interface gráfica principal para um cliente de votação, permitindo que os usuários insiram e validem seus CPFs para participar da votação.
+* */
+
 package client.gui;
 
 import client.VotingClient;
@@ -6,12 +10,11 @@ import clientServer.Poll;
 
 import javax.swing.*;
 import java.awt.*;
-import java.io.IOException;
 
 public class ClientMainWindow extends BaseWindow {
     private final VotingClient client;
 
-    public ClientMainWindow(VotingClient votingClient) throws IOException {
+    public ClientMainWindow(VotingClient votingClient) {
         super();
 
         this.client = votingClient;
@@ -48,7 +51,7 @@ public class ClientMainWindow extends BaseWindow {
     }
 
     private JLabel createInstructionLabel() {
-        JLabel label = new JLabel("Para votar, digite o CPF (números) e confirme:");
+        JLabel label = new JLabel("Para votar, digite o CPF (apenas números) e confirme:");
         label.setAlignmentX(Component.CENTER_ALIGNMENT);
         return label;
     }
@@ -86,24 +89,34 @@ public class ClientMainWindow extends BaseWindow {
 
     private void processCPF(JTextField cpfField) {
         String cpf = cpfField.getText();
-
-        if (cpf.isEmpty() || !cpf.matches("\\d{11}")) {
+        if (!isCPFValid(cpf)) {
             JOptionPane.showMessageDialog(this, "Por favor, insira um CPF válido.", "Erro", JOptionPane.ERROR_MESSAGE);
-        } else {
-            boolean validCPF = client.sendCPFToVerification(cpf);
-
-            if (validCPF) {
-                Poll votingPackage = client.receiveVotingPackage();
-                if (votingPackage != null) {
-                    PollWindow pollWindow = new PollWindow(this, votingPackage.getTitle(), votingPackage.getOptions(), client);
-                    pollWindow.setVisible(true);
-                } else {
-                    JOptionPane.showMessageDialog(this, "Falha ao receber pacote de votação.", "Erro", JOptionPane.ERROR_MESSAGE);
-                }
-            } else {
-                JOptionPane.showMessageDialog(this, "Esse CPF já foi registrado para votação.", "Erro", JOptionPane.ERROR_MESSAGE);
-            }
+            return;
         }
+
+        if (client.sendCPFToVerification(cpf)) {
+            handleValidCPF();
+        } else {
+            JOptionPane.showMessageDialog(this, "Esse CPF já foi registrado para votação.", "Erro", JOptionPane.ERROR_MESSAGE);
+        }
+    }
+
+    private boolean isCPFValid(String cpf) {
+        return !(cpf.isEmpty() || !cpf.matches("\\d{11}"));
+    }
+
+    private void handleValidCPF() {
+        Poll votingPackage = client.receiveVotingPackage();
+        if (votingPackage != null) {
+            openPollWindow(votingPackage);
+        } else {
+            JOptionPane.showMessageDialog(this, "Falha ao receber pacote de votação.", "Erro", JOptionPane.ERROR_MESSAGE);
+        }
+    }
+
+    private void openPollWindow(Poll votingPackage) {
+        PollWindow pollWindow = new PollWindow(this, votingPackage.getTitle(), votingPackage.getOptions(), client);
+        pollWindow.setVisible(true);
     }
 
     public void initMenu() {

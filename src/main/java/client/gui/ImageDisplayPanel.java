@@ -1,10 +1,8 @@
-/* Essa classe é responsável por carreagr e exibir uma imagem. */
+/* Essa classe é responsável por carregar e exibir uma imagem. */
 
 package client.gui;
 
 import clientServer.gui.SystemInfo;
-import lombok.extern.log4j.Log4j2;
-
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Image;

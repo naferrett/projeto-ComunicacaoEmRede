@@ -1,23 +1,22 @@
 package client;
 
-import java.awt.*;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.net.Socket;
 
-import client.gui.ClientMainWindow;
 import clientServer.Poll;
 
 public class VotingClient {
-    private static final String SERVER_ADDRESS = "172.29.240.1"; // 127.0.0.1
+    private final String serverAddress = "172.29.240.1"; //This is the computer's IP address. It should be changed depending on the IP of the computer hosting the server.
+    public final int port = 4000;
     private Socket socket;
     private ObjectOutputStream outputStream;
     private ObjectInputStream inputStream;
 
     public void start() {
         try {
-            socket = new Socket(SERVER_ADDRESS, 4000);
+            socket = new Socket(serverAddress, port);
             outputStream = new ObjectOutputStream(socket.getOutputStream());
             inputStream = new ObjectInputStream(socket.getInputStream());
         } catch (IOException e) {
@@ -36,7 +35,6 @@ public class VotingClient {
             return false;
         }
     }
-
 
     public Poll receiveVotingPackage() {
         try {
@@ -68,16 +66,6 @@ public class VotingClient {
             }
         } catch (IOException e) {
             System.out.println("Erro ao fechar a conexão: " + e.getMessage());
-        }
-    }
-
-    public static void main(String[] args) {
-        try {
-            (new ClientMainWindow(new VotingClient())).initInterface();
-        } catch (HeadlessException e) {
-            System.out.println("Exceção do tipo HeadLessException capturada: " + e.getMessage());
-        } catch (Exception e) {
-            System.out.println("Exceção genérica capturada: " + e.getMessage());
         }
     }
 }

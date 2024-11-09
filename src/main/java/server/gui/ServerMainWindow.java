@@ -79,8 +79,6 @@ public class ServerMainWindow extends BaseWindow {
             JLabel voteLabel = voteCountsLabels.get(option);
             if (voteLabel != null) {
                 voteLabel.setText(option + ": " + count + " votos");
-            } else {
-                System.out.println("Nenhum label encontrado para a opção: " + option); // Debug
             }
         }
     }
@@ -94,19 +92,6 @@ public class ServerMainWindow extends BaseWindow {
         panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
         panel.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
         return panel;
-    }
-
-    private JLabel createLabelExemplo() {
-        JLabel exemploLabel = new JLabel("Label de exemplo");
-        exemploLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
-
-        return exemploLabel;
-    }
-
-    private void addComponentsToBackgroundPanel(JPanel panel, JLabel exemplo) {
-        //panel.add(Box.createVerticalStrut(10)); esse createVerticalStruct dá um espaço entre um elementos pra eles não ficarem colados, fica a seu critério se quiser usar
-        //.. adicionar o resto dos componentes do backgroundPanel
-        panel.add(exemplo);
     }
 
     public void initMenu() {
