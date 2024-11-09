@@ -1,6 +1,13 @@
 Relatório Final da Eleição
-Título da Votação: 1
+Título da Votação: a
 
 Resultados:
+Opção:  - Votos: 0
+Opção: 1 - Votos: 1
+Opção: 2 - Votos: 0
+Opção: 3 - Votos: 0
+
+Ganhador: 1 com 1 votos
 
 Informações dos votantes:
+CPF: 11122233344 - Votou em: 1
