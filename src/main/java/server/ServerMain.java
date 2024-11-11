@@ -2,7 +2,6 @@
  * Iniciar o servidor de votação e a interface gráfica do servidor, lidando com exceções que possam ocorrer durante a execução.
 */
 
-
 package server;
 
 import server.gui.ServerMainWindow;

@@ -13,6 +13,7 @@ import server.PollServer;
 
 import javax.swing.*;
 import java.awt.*;
+import java.util.EventListener;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -22,10 +23,10 @@ public class ServerMainWindow extends BaseWindow {
     private JPanel backgroundPanel;
     private final Map<String, JLabel> voteCountsLabels = new HashMap<>();
 
-    public ServerMainWindow(PollServer votingServer) {
+    public ServerMainWindow(PollServer pollServer) {
         super();
 
-        this.server = votingServer;
+        this.server = pollServer;
         new Thread(() -> server.startServer()).start();
 
         initAddComponents();
@@ -34,7 +35,7 @@ public class ServerMainWindow extends BaseWindow {
     public void initAddComponents() {
         initStatusPanel();
         initWindowListener();
-        initMenu();
+        initServerMenu();
         initBackGround();
     }
 
@@ -95,7 +96,7 @@ public class ServerMainWindow extends BaseWindow {
         return panel;
     }
 
-    public void initMenu() {
+    public void initServerMenu() {
         ServerMenuHandler menuHandler = new ServerMenuHandler(this);
         menuHandler.createAddToMenu();
         initEventListener(menuHandler);

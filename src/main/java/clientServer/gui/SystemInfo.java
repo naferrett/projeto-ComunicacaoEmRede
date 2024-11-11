@@ -33,7 +33,13 @@ public class SystemInfo {
 
         text.append("Este projeto envolve desenvolver uma aplicação cliente-servidor em Java, utilizando TCP/IP, multithreading e interfaces gráficas de usuário para atender múltiplos clientes simultaneamente. \n");
         text.append("\n");
-        text.append("Para votar:\n");
+        text.append("Para iniciar e encerrar uma votação como servidor:\n");
+        text.append("  Selecione a opção 'Votação' na barra de menu.\n");
+        text.append("  No menu, selecione a opção 'Nova Votação' para abrir a janela para criar uma votação.\n");
+        text.append("  Na janela de nova votação, siga as instruções na parte superior da interface.\n");
+        text.append("  No menu, selecione a opção 'Encerrar Votação' para encerrar a votação.\n");
+        text.append("\n");
+        text.append("Para votar como cliente:\n");
         text.append("  Insira o CPF.\n");
         text.append("    O CPF deve conter apenas números.\n");
         text.append("    O CPF deve conter onze digitos numéricos.\n");

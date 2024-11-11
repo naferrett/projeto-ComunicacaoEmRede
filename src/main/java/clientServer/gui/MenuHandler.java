@@ -1,20 +1,20 @@
 /*
- * A classe ClientMenuHandler é responsável por criar e adicionar o menus de ajuda à barra de menus da janela principal do cliente.
+ * A classe MenuHandler é responsável por criar e adicionar o menus de ajuda à barra de menus da janela principal do cliente e do servidor.
  */
 
-package client.gui;
+package clientServer.gui;
 
 import lombok.Getter;
 import javax.swing.*;
 
-public class ClientMenuHandler {
+public class MenuHandler {
     @Getter
     private JMenuItem menuItemCredits;
     @Getter
     private JMenuItem menuItemHelp;
-    private final ClientMainWindow mainWindow;
+    private final BaseWindow mainWindow;
 
-    public ClientMenuHandler(ClientMainWindow mainWindow) {
+    public MenuHandler(BaseWindow mainWindow) {
         this.mainWindow = mainWindow;
     }
 
@@ -24,7 +24,7 @@ public class ClientMenuHandler {
         mainWindow.setJMenuBar(menuBar);
     }
 
-    private JMenu createHelpMenu() {
+    public JMenu createHelpMenu() {
         JMenu helpMenu = new JMenu("Ajuda");
 
         helpMenu.add(createHelpItem());

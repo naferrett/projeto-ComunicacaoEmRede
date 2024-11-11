@@ -1,18 +1,19 @@
 /*
- * A classe ClientEventListener lida com os eventos de ação disparados pelos menus da interface do cliente.
+ * A classe EventListener lida com os eventos de ação disparados pelos menus da interface do cliente.
  */
 
-package client.gui;
+package clientServer.gui;
 
-import clientServer.gui.SystemInfo;
+import client.gui.MessageWindow;
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class ClientEventListener implements ActionListener {
-    private final ClientMainWindow mainWindow;
-    private final ClientMenuHandler menuHandler;
+public class EventListener implements ActionListener {
+    private final BaseWindow mainWindow;
+    private final MenuHandler menuHandler;
 
-    ClientEventListener(ClientMainWindow mainwindow, ClientMenuHandler menuHandler) {
+    public EventListener(BaseWindow mainwindow, MenuHandler menuHandler) {
         this.mainWindow = mainwindow;
         this.menuHandler = menuHandler;
     }

@@ -5,6 +5,8 @@
 package client.gui;
 
 import client.VotingClient;
+import clientServer.gui.EventListener;
+import clientServer.gui.MenuHandler;
 import clientServer.gui.BaseWindow;
 import clientServer.Poll;
 
@@ -122,13 +124,13 @@ public class ClientMainWindow extends BaseWindow {
     }
 
     public void initMenu() {
-        ClientMenuHandler menuHandler = new ClientMenuHandler(this);
+        MenuHandler menuHandler = new MenuHandler(this);
         menuHandler.createAddToMenu();
         initEventListener(menuHandler);
     }
 
-    public void initEventListener(ClientMenuHandler menuHandler) {
-        ClientEventListener eventListener = new ClientEventListener(this, menuHandler);
+    public void initEventListener(MenuHandler menuHandler) {
+        EventListener eventListener = new EventListener(this, menuHandler);
         addMenuListeners(eventListener);
     }
 

@@ -4,11 +4,12 @@
 
 package server.gui;
 
+import clientServer.gui.MenuHandler;
 import lombok.Getter;
 
 import javax.swing.*;
 
-public class ServerMenuHandler {
+public class ServerMenuHandler extends MenuHandler {
 
     @Getter
     private JMenuItem newPollItem;
@@ -17,21 +18,23 @@ public class ServerMenuHandler {
     ServerMainWindow mainWindow;
 
     public ServerMenuHandler(ServerMainWindow mainWindow) {
+        super(mainWindow);
         this.mainWindow = mainWindow;
     }
 
     public void createAddToMenu() {
         JMenuBar menuBar = new JMenuBar();
-        menuBar.add(createPoolMenu());
+        menuBar.add(createPollMenu());
+        menuBar.add(super.createHelpMenu());
         mainWindow.setJMenuBar(menuBar);
     }
 
-    private JMenu createPoolMenu() {
-        JMenu poolMenu = new JMenu("Votação");
-        poolMenu.add(createNewPollItem());
-        poolMenu.add(createClosePollItem());
+    private JMenu createPollMenu() {
+        JMenu pollMenu = new JMenu("Votação");
+        pollMenu.add(createNewPollItem());
+        pollMenu.add(createClosePollItem());
 
-        return poolMenu;
+        return pollMenu;
     }
 
     private JMenuItem createNewPollItem() {

@@ -1,14 +1,14 @@
 Relatório Final da Eleição
-Título da Votação: 1
+Título da Votação: Eleições
 
 Resultados:
-Opção: 1 - Votos: 1
-Opção: 2 - Votos: 1
+Opção: Pessoa A - Votos: 1
+Opção: Pessoa B - Votos: 2
+Opção: Pessoa C - Votos: 0
 
-Empate entre as opções mais votadas: 
-1 empatou com 1 votos.
-2 empatou com 1 votos.
+Ganhador: Pessoa B com 2 votos
 
 Informações dos votantes:
-CPF: 12345678910 - Votou em: 2
-CPF: 12345678911 - Votou em: 1
+CPF: 12345789011 - Votou em: Pessoa A
+CPF: 12345789012 - Votou em: Pessoa B
+CPF: 12345789013 - Votou em: Pessoa B

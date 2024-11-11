@@ -4,20 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="af809e2b-38fa-4de0-ae51-fc75a94a1a9a" name="Changes" comment="clientServer refactoring">
-      <change afterPath="$PROJECT_DIR$/src/main/java/server/ServerMain.java" afterDir="false" />
+    <list default="true" id="af809e2b-38fa-4de0-ae51-fc75a94a1a9a" name="Changes" comment="server and general refactoring">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/relatorioFinal.txt" beforeDir="false" afterPath="$PROJECT_DIR$/relatorioFinal.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/client/gui/ClientEventListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/clientServer/gui/EventListener.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/client/gui/ClientMainWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client/gui/ClientMainWindow.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/client/gui/ClientMenuHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/clientServer/gui/MenuHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/clientServer/gui/BaseWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/clientServer/gui/BaseWindow.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/clientServer/gui/SystemInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/clientServer/gui/SystemInfo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/clientServer/gui/WindowListenerHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/clientServer/gui/WindowListenerHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/server/ClientSocket.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/server/ClientSocket.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/server/PollServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/server/PollServer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/server/gui/NewPollWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/server/gui/NewPollWindow.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/server/ServerMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/server/ServerMain.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/server/gui/ServerEventListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/server/gui/ServerEventListener.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/server/gui/ServerMainWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/server/gui/ServerMainWindow.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/server/gui/ServerMenuHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/server/gui/ServerMenuHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/server/reports/FinalReport.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/server/reports/FinalReport.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -75,7 +73,6 @@
     "Application.clientMain.executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "git-widget-placeholder": "main",
     "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
@@ -93,7 +90,7 @@
       <recent name="C:\Users\nathf\OneDrive\Documentos\unicamp\matérias\POO II\Projeto-II-ComunicacaoEmRede\src\main\resources" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.ServerMain">
+  <component name="RunManager" selected="Application.ClientMain">
     <configuration name="ClientMain" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="client.ClientMain" />
       <module name="Projeto-II-ComunicacaoEmRede" />
@@ -107,12 +104,25 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="MainTeste" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="client.gui.MainTeste" />
+      <module name="Projeto-II-ComunicacaoEmRede" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="clientServer.gui.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="PollServer" type="Application" factoryName="Application" singleton="false" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="server.PollServer" />
       <module name="Projeto-II-ComunicacaoEmRede" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="client.gui.*" />
+          <option name="PATTERN" value="clientServer.gui.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -138,20 +148,7 @@
       <module name="Projeto-II-ComunicacaoEmRede" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="client.gui.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="client.gui.MainTeste" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="client.gui.MainTeste" />
-      <module name="Projeto-II-ComunicacaoEmRede" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="client.gui.*" />
+          <option name="PATTERN" value="clientServer.gui.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -210,7 +207,10 @@
       <workItem from="1730826149498" duration="1913000" />
       <workItem from="1730828170165" duration="622000" />
       <workItem from="1730918934305" duration="868000" />
-      <workItem from="1731176686407" duration="6902000" />
+      <workItem from="1731176686407" duration="7076000" />
+      <workItem from="1731184028630" duration="25000" />
+      <workItem from="1731262596619" duration="30000" />
+      <workItem from="1731284341442" duration="8815000" />
     </task>
     <task id="LOCAL-00001" summary="first version - gui">
       <option name="closed" value="true" />
@@ -372,7 +372,23 @@
       <option name="project" value="LOCAL" />
       <updated>1731180201835</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="server and general refactoring">
+      <option name="closed" value="true" />
+      <created>1731183713184</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1731183713185</updated>
+    </task>
+    <task id="LOCAL-00022" summary="server and general refactoring">
+      <option name="closed" value="true" />
+      <created>1731183735609</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1731183735609</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -397,6 +413,7 @@
     <MESSAGE value="reports adaptation for a possible draw" />
     <MESSAGE value="client refactoring" />
     <MESSAGE value="clientServer refactoring" />
-    <option name="LAST_COMMIT_MESSAGE" value="clientServer refactoring" />
+    <MESSAGE value="server and general refactoring" />
+    <option name="LAST_COMMIT_MESSAGE" value="server and general refactoring" />
   </component>
 </project>
