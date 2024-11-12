@@ -4,18 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="af809e2b-38fa-4de0-ae51-fc75a94a1a9a" name="Changes" comment="server and general refactoring">
+    <list default="true" id="af809e2b-38fa-4de0-ae51-fc75a94a1a9a" name="Changes" comment="help menu for server gui">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/relatorioFinal.txt" beforeDir="false" afterPath="$PROJECT_DIR$/relatorioFinal.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/client/gui/ClientEventListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/clientServer/gui/EventListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/client/gui/ClientMainWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client/gui/ClientMainWindow.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/client/gui/ClientMenuHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/clientServer/gui/MenuHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/clientServer/gui/BaseWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/clientServer/gui/BaseWindow.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/clientServer/gui/SystemInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/clientServer/gui/SystemInfo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/server/ServerMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/server/ServerMain.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/server/gui/ServerEventListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/server/gui/ServerEventListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/server/gui/ServerMainWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/server/gui/ServerMainWindow.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/server/gui/ServerMenuHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/server/gui/ServerMenuHandler.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,39 +49,39 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.ChatClient.executor": "Run",
-    "Application.ChatServer.executor": "Run",
-    "Application.ClientMain.executor": "Run",
-    "Application.MainTeste.executor": "Run",
-    "Application.PollServer.executor": "Run",
-    "Application.ServerMain.executor": "Run",
-    "Application.VotingClient.executor": "Run",
-    "Application.VotingServer.executor": "Run",
-    "Application.client.gui.MainTeste.executor": "Run",
-    "Application.client.guiApp.MainTeste.executor": "Run",
-    "Application.clientMain.executor": "Run",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "main",
-    "ignore.virus.scanning.warn.message": "true",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/nathf/OneDrive/Documentos/unicamp/matérias/POO II/Projeto-II-ComunicacaoEmRede",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.ChatClient.executor&quot;: &quot;Run&quot;,
+    &quot;Application.ChatServer.executor&quot;: &quot;Run&quot;,
+    &quot;Application.ClientMain.executor&quot;: &quot;Run&quot;,
+    &quot;Application.MainTeste.executor&quot;: &quot;Run&quot;,
+    &quot;Application.PollServer.executor&quot;: &quot;Run&quot;,
+    &quot;Application.ServerMain.executor&quot;: &quot;Run&quot;,
+    &quot;Application.VotingClient.executor&quot;: &quot;Run&quot;,
+    &quot;Application.VotingServer.executor&quot;: &quot;Run&quot;,
+    &quot;Application.client.gui.MainTeste.executor&quot;: &quot;Run&quot;,
+    &quot;Application.client.guiApp.MainTeste.executor&quot;: &quot;Run&quot;,
+    &quot;Application.clientMain.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/nathf/OneDrive/Documentos/unicamp/matérias/POO II/Projeto-II-ComunicacaoEmRede&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\nathf\OneDrive\Documentos\unicamp\matérias\POO II\Projeto-II-ComunicacaoEmRede\src\main\resources" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.ClientMain">
+  <component name="RunManager" selected="Application.ServerMain">
     <configuration name="ClientMain" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="client.ClientMain" />
       <module name="Projeto-II-ComunicacaoEmRede" />
@@ -157,19 +148,18 @@
       </method>
     </configuration>
     <list>
+      <item itemvalue="Application.MainTeste" />
       <item itemvalue="Application.ClientMain" />
       <item itemvalue="Application.ServerMain" />
       <item itemvalue="Application.PollServer" />
-      <item itemvalue="Application.client.gui.MainTeste" />
       <item itemvalue="Application.VotingClient" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.ClientMain" />
         <item itemvalue="Application.ServerMain" />
+        <item itemvalue="Application.ClientMain" />
         <item itemvalue="Application.PollServer" />
         <item itemvalue="Application.VotingClient" />
-        <item itemvalue="Application.client.gui.MainTeste" />
       </list>
     </recent_temporary>
   </component>
@@ -210,7 +200,11 @@
       <workItem from="1731176686407" duration="7076000" />
       <workItem from="1731184028630" duration="25000" />
       <workItem from="1731262596619" duration="30000" />
-      <workItem from="1731284341442" duration="8815000" />
+      <workItem from="1731284341442" duration="9255000" />
+      <workItem from="1731293715421" duration="31000" />
+      <workItem from="1731362900659" duration="99000" />
+      <workItem from="1731369488242" duration="924000" />
+      <workItem from="1731372154371" duration="1444000" />
     </task>
     <task id="LOCAL-00001" summary="first version - gui">
       <option name="closed" value="true" />
@@ -388,7 +382,15 @@
       <option name="project" value="LOCAL" />
       <updated>1731183735609</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="help menu for server gui">
+      <option name="closed" value="true" />
+      <created>1731293682670</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1731293682670</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -414,6 +416,7 @@
     <MESSAGE value="client refactoring" />
     <MESSAGE value="clientServer refactoring" />
     <MESSAGE value="server and general refactoring" />
-    <option name="LAST_COMMIT_MESSAGE" value="server and general refactoring" />
+    <MESSAGE value="help menu for server gui" />
+    <option name="LAST_COMMIT_MESSAGE" value="help menu for server gui" />
   </component>
 </project>
