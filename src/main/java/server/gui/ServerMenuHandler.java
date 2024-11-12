@@ -1,5 +1,5 @@
 /*
- * A classe ServerMenuHandler é responsável por criar e adicionar o menus de ajuda à barra de menus da janela principal do servidor.
+ * The ServerMenuHandler class is responsible for creating and adding help menus to the main window's menu bar of the server.
  */
 
 package server.gui;

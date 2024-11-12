@@ -1,6 +1,7 @@
 /*
-* A classe ClientMainWindow gerencia a interface gráfica principal para um cliente de votação, permitindo que os usuários insiram e validem seus CPFs para participar da votação.
-* */
+ * The ClientMainWindow class manages the main graphical interface for a voting client, allowing users to input and validate their CPFs to participate in the voting process.
+ * */
+
 
 package client.gui;
 

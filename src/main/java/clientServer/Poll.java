@@ -1,7 +1,7 @@
 /*
-* A classe Poll representa uma votação, contendo um título e uma lista de opções.
-* É uma classe imutável (record) que implementa Serializable, permitindo a transmissão e armazenamento dos dados da votação.
-* */
+ * The Poll class represents a vote, containing a title and a list of options.
+ * It is an immutable class (record) that implements Serializable, allowing the transmission and storage of voting data.
+ * */
 
 package clientServer;
 

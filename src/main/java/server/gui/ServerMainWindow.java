@@ -1,9 +1,8 @@
 /*
- * A classe ServerMainWindow representa a interface principal do servidor de votações.
- * Ela gerencia a exibição da lista de opções de votação e a quantidade de votos que aquela opção recebeu em tempo real.
- * Ela também lida com a interação do usuário, como a adição de novas votações e o encerramento do servidor.
+ * The ServerMainWindow class represents the main interface of the voting server.
+ * It manages the display of the list of voting options and the real-time vote count for each option.
+ * It also handles user interaction, such as adding new polls and shutting down the server.
  */
-
 
 package server.gui;
 

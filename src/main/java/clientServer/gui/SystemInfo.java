@@ -1,5 +1,4 @@
-/* Essa classe define as variáveis globais do programa, assim como também possui
- * métodos para exibir créditos sobre o sistema e instruções de ajuda. */
+/* This class defines the global variables of the program, as well as methods to display credits about the system and help instructions. */
 
 package clientServer.gui;
 

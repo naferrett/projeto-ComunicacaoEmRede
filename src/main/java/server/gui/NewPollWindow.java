@@ -1,9 +1,8 @@
 /*
- * A classe NewPollWindow representa uma janela para a criação de uma nova votação por parte do servidor.
- * Essa classe permite ao usuário inserir o título da votação e as opções, validando se há duplicatas.
- * Ao confirmar a votação, a nova enquete é enviada ao servidor e as opções de votação são exibidas na interface do servidor.
+ * The NewPollWindow class represents a window for creating a new poll by the server.
+ * This class allows the user to enter the poll title and options, validating if there are duplicates.
+ * Upon confirming the poll, the new poll is sent to the server, and the voting options are displayed in the server's interface.
  */
-
 
 package server.gui;
 

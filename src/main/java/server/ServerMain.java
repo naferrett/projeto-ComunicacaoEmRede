@@ -1,6 +1,6 @@
 /*
- * Iniciar o servidor de votação e a interface gráfica do servidor, lidando com exceções que possam ocorrer durante a execução.
-*/
+ * Start the voting server and the server's graphical interface, handling any exceptions that may occur during execution.
+ */
 
 package server;
 

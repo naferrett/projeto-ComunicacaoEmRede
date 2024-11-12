@@ -1,5 +1,5 @@
-/* Esta classe implementa a interface WindowListener para gerenciar eventos relacionados
- * à janela principal de cada aplicação.*/
+/* This class implements the WindowListener interface to manage events related
+ * to the main window of each application. */
 
 package clientServer.gui;
 

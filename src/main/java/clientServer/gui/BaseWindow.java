@@ -1,11 +1,9 @@
 /*
-* Classe base para criação de janelas na interface gráfica, fornecendo configuração de janela, manipulação de ícones, painel de status,
-* e métodos de inicialização e gerenciamento de eventos de menu.
-* */
+ * Base class for creating windows in the graphical interface, providing window configuration, icon handling, status panel,
+ * and methods for initialization and menu event management.
+ * */
 
 package clientServer.gui;
-
-import lombok.Getter;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;

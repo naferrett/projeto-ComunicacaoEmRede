@@ -1,4 +1,4 @@
-/* Essa classe é responsável por carregar e exibir uma imagem. */
+/* This class is responsible for loading and displaying an image. */
 
 package client.gui;
 

@@ -1,7 +1,7 @@
 /*
- * A classe gerencia o servidor de votação, permitindo que múltiplos clientes se conectem
- * para votar, validando seus CPFs e registrando os votos. No fechamento do servidor, ela gera um
- * relatório final com os resultados da eleição.
+ * The class manages the voting server, allowing multiple clients to connect
+ * to vote, validating their CPFs and recording the votes. Upon shutting down the server, it generates a
+ * final report with the election results.
  */
 
 package server;

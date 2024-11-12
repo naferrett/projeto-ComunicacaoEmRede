@@ -1,6 +1,6 @@
 /*
-* Classe principal que inicializa a interface gráfica do cliente e o cliente para o sistema de votação,
-* */
+ * Main class that initializes the client graphical interface and the client for the voting system.
+ * */
 
 package client;
 

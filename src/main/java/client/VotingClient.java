@@ -1,6 +1,6 @@
 /*
-* Classe responsável por gerenciar a comunicação do cliente com o servidor de votação.
-* */
+ * Class responsible for managing the client's communication with the voting server.
+ * */
 
 package client;
 

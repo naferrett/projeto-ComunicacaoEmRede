@@ -1,8 +1,8 @@
 /*
-* Interface que define o método exitInterface, herdados pelas classes ClientMainWindow e ServerMainWindow da classe BaseWindow para implementar o comportamento específico
-* de encerramento da interface. A interface permite que essas classes compartilhem uma implementação comum de gerenciamento de eventos de janela por meio da
-* classe WindowListenerHandler.
-*/
+ * Interface that defines the exitInterface method, inherited by the ClientMainWindow and ServerMainWindow classes from the BaseWindow class to implement
+ * specific behavior for closing the interface. The interface allows these classes to share a common implementation for window event management
+ * through the WindowListenerHandler class.
+ */
 
 package clientServer.gui;
 

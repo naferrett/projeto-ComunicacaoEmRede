@@ -1,12 +1,10 @@
 /*
- * A classe é responsável por gerar um relatório final em arquivo de texto
- * da eleição com base nas informações de uma votação contendo:
- * 1. O título da votação.
- * 2. Os resultados de cada opção de votação (quantidade de votos).
- * 3. O vencedor da votação ou empate.
- * 4. Informações sobre os votantes e suas escolhas.
+ * The class is responsible for generating a final report in a text file of the election based on the voting information, including:
+ * 1. The title of the poll.
+ * 2. The results of each voting option (vote count).
+ * 3. The winner of the poll or a tie.
+ * 4. Information about the voters and their choices.
  */
-
 
 package server.reports;
 

@@ -1,5 +1,5 @@
 /*
- * A classe ServerEventListener lida com os eventos de ação disparados pelos menus da interface do servidor.
+ * The ServerEventListener class handles action events triggered by the menus of the server interface.
  */
 
 package server.gui;

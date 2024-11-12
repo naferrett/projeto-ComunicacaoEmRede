@@ -1,7 +1,7 @@
 /*
-* A classe PollWindow cria uma janela de diálogo para exibir a votação ao usuário após a confirmação e envio do CPF ao servidor, exibindo opções
-* e permitindo a seleção de uma opção.
-* */
+ * The PollWindow class creates a dialog window to display the voting process to the user after the CPF has been confirmed and sent to the server,
+ * presenting options and allowing the selection of a choice.
+ * */
 
 package client.gui;
 

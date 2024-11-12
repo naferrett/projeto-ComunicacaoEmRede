@@ -1,5 +1,5 @@
 /*
- * A classe MenuHandler é responsável por criar e adicionar o menus de ajuda à barra de menus da janela principal do cliente e do servidor.
+ * The MenuHandler class is responsible for creating and adding help menus to the main window's menu bar of the client and server.
  */
 
 package clientServer.gui;

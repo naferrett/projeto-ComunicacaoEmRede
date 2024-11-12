@@ -1,5 +1,5 @@
 /*
- * A classe EventListener lida com os eventos de ação disparados pelos menus da interface do cliente.
+ * The EventListener class handles action events triggered by the menus of the client and server interface.
  */
 
 package clientServer.gui;
