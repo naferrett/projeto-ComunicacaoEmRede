@@ -1,8 +1,7 @@
 /* This class is responsible for loading and displaying an image. */
 
-package client.gui;
+package clientServer.gui;
 
-import clientServer.gui.SystemInfo;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Image;

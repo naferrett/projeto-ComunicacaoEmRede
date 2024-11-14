@@ -9,10 +9,8 @@ package server.gui;
 import clientServer.gui.BaseWindow;
 import lombok.Getter;
 import server.PollServer;
-
 import javax.swing.*;
 import java.awt.*;
-import java.util.EventListener;
 import java.util.HashMap;
 import java.util.Map;
 

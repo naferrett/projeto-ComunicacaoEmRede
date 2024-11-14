@@ -55,6 +55,17 @@ public class BaseWindow extends JFrame implements ClosableWindow {
         this.add(statusPanel, BorderLayout.SOUTH);
     }
 
+    public void initMenu() {
+        MenuHandler menuHandler = new MenuHandler(this);
+        menuHandler.createAddToMenu();
+        initEventListener(menuHandler);
+    }
+
+    public void initEventListener(MenuHandler menuHandler) {
+        EventListener eventListener = new EventListener(this, menuHandler);
+        addMenuListeners(eventListener);
+    }
+
     public void initWindowListener() {
         WindowListenerHandler windowEventListener = new WindowListenerHandler(this);
         this.addWindowListener(windowEventListener);

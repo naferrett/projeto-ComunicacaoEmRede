@@ -9,7 +9,6 @@ package server;
 import clientServer.Poll;
 import lombok.Getter;
 import lombok.Setter;
-import server.gui.ServerMainWindow;
 import server.reports.FinalReport;
 
 import java.awt.*;

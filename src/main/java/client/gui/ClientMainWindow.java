@@ -6,11 +6,8 @@
 package client.gui;
 
 import client.VotingClient;
-import clientServer.gui.EventListener;
-import clientServer.gui.MenuHandler;
 import clientServer.gui.BaseWindow;
 import clientServer.Poll;
-
 import javax.swing.*;
 import java.awt.*;
 
@@ -124,16 +121,7 @@ public class ClientMainWindow extends BaseWindow {
         pollWindow.setVisible(true);
     }
 
-    public void initMenu() {
-        MenuHandler menuHandler = new MenuHandler(this);
-        menuHandler.createAddToMenu();
-        initEventListener(menuHandler);
-    }
 
-    public void initEventListener(MenuHandler menuHandler) {
-        EventListener eventListener = new EventListener(this, menuHandler);
-        addMenuListeners(eventListener);
-    }
 
     @Override
     public void exitInterface() {

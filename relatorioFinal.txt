@@ -1,13 +1,11 @@
 Relatório Final da Eleição
-Título da Votação: Eleições
+Título da Votação: oi
 
 Resultados:
-Opção: Candidato A - Votos: 2
-Opção: Candidato B - Votos: 0
-Opção: Candidato C - Votos: 0
+Opção: tetsw - Votos: 1
+Opção: as - Votos: 0
 
-Ganhador: Candidato A com 2 votos
+Ganhador: tetsw com 1 votos
 
 Informações dos votantes:
-CPF: 23456789110 - Votou em: Candidato A
-CPF: 12345678910 - Votou em: Candidato A
+CPF: 12345678910 - Votou em: tetsw

@@ -5,13 +5,11 @@
 package server.gui;
 
 import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-
 import clientServer.gui.EventListener;
 import clientServer.gui.SystemInfo;
 import server.PollServer;
 
-public class ServerEventListener extends EventListener implements ActionListener {
+public class ServerEventListener extends EventListener {
     private final ServerMainWindow mainWindow;
     private final ServerMenuHandler menuHandler;
     private final PollServer server;
@@ -40,7 +38,7 @@ public class ServerEventListener extends EventListener implements ActionListener
     }
 
     private void showNewPollWindow() {
-        (new NewPollWindow("Nova Votação - " + SystemInfo.getVersionName(), SystemInfo.getInstructionsToAddPool(), mainWindow, mainWindow,server)).setVisible(true);
+        (new NewPollWindow("Nova Votação - " + SystemInfo.getVersionName(), SystemInfo.getInstructionsToAddPool(), mainWindow, server)).setVisible(true);
     }
 
 }

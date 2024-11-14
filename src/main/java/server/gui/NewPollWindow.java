@@ -7,9 +7,7 @@
 package server.gui;
 
 import clientServer.Poll;
-import clientServer.gui.BaseWindow;
 import server.PollServer;
-
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -36,15 +34,13 @@ public class NewPollWindow extends JDialog implements ActionListener {
     private final List<String> pollOptions = new ArrayList<>();
     private JTextArea textArea;
     private final PollServer server;
-    private final BaseWindow mainWindow;
     private final ServerMainWindow serverWindow;
 
-    NewPollWindow(String title, String text, BaseWindow mainWindow, ServerMainWindow serverWindow, PollServer server) throws HeadlessException {
+    NewPollWindow(String title, String text, ServerMainWindow serverWindow, PollServer server) throws HeadlessException {
         super(serverWindow, title);
         windowConfig();
 
         this.serverWindow = serverWindow;
-        this.mainWindow = mainWindow;
         this.server = server;
 
         createAddComponents(text);
@@ -53,7 +49,7 @@ public class NewPollWindow extends JDialog implements ActionListener {
     public void windowConfig() {
         this.setSize(600, 300);
         this.setResizable(false);
-        this.setLocationRelativeTo(mainWindow);
+        this.setLocationRelativeTo(serverWindow);
         this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         this.setModalityType(ModalityType.APPLICATION_MODAL);
     }
@@ -201,7 +197,7 @@ public class NewPollWindow extends JDialog implements ActionListener {
             pollOptions.add(pollOption.getText());
 
             if(findDuplicateOptions(pollOptions)) {
-                JOptionPane.showMessageDialog(mainWindow, "A lista de opções de votação não aceita duplicatas.", "Erro", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(serverWindow, "A lista de opções de votação não aceita duplicatas.", "Erro", JOptionPane.ERROR_MESSAGE);
                 pollOptions.remove(pollOption.getText());
             }
             pollOption.setText("");

@@ -4,8 +4,6 @@
 
 package clientServer.gui;
 
-import client.gui.MessageWindow;
-
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 

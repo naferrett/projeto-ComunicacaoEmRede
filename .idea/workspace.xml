@@ -6,15 +6,16 @@
   <component name="ChangeListManager">
     <list default="true" id="af809e2b-38fa-4de0-ae51-fc75a94a1a9a" name="Changes" comment="small refactoring">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/client/ClientMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client/ClientMain.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/client/VotingClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client/VotingClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/relatorioFinal.txt" beforeDir="false" afterPath="$PROJECT_DIR$/relatorioFinal.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/client/gui/ClientMainWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client/gui/ClientMainWindow.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/client/gui/ImageDisplayPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client/gui/ImageDisplayPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/client/gui/MessageWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client/gui/MessageWindow.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/client/gui/PollWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client/gui/PollWindow.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/client/gui/ImageDisplayPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/clientServer/gui/ImageDisplayPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/client/gui/MessageWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/clientServer/gui/MessageWindow.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/clientServer/gui/BaseWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/clientServer/gui/BaseWindow.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/clientServer/gui/ClosableWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/clientServer/gui/ClosableWindow.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/clientServer/gui/EventListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/clientServer/gui/EventListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/server/PollServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/server/PollServer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/server/gui/NewPollWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/server/gui/NewPollWindow.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/server/gui/ServerEventListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/server/gui/ServerEventListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/server/gui/ServerMainWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/server/gui/ServerMainWindow.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -164,8 +165,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.ServerMain" />
         <item itemvalue="Application.ClientMain" />
+        <item itemvalue="Application.ServerMain" />
         <item itemvalue="Application.PollServer" />
         <item itemvalue="Application.VotingClient" />
       </list>

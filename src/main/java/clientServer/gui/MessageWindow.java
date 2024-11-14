@@ -1,13 +1,10 @@
 /* This class is a dialog window responsible for displaying a message
  * with a text area, an image panel, and an exit button. */
 
-package client.gui;
-
-import clientServer.gui.SystemInfo;
+package clientServer.gui;
 
 import java.awt.*;
 import java.io.Serial;
-
 import javax.swing.*;
 import javax.swing.border.LineBorder;
 import javax.swing.border.TitledBorder;
