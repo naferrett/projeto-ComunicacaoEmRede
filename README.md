@@ -44,7 +44,6 @@ Este é um sistema de votação distribuído desenvolvido em Java, com funcional
 - **Linguagem:** Java 17+
 - **Frameworks/Libs:** 
   - Swing (Interface Gráfica)
-  - `javax.swing.Timer` (Atualização de Resultados em Tempo Real)
   - `lombok` 
 - **Arquitetura:** Cliente-Servidor
 
